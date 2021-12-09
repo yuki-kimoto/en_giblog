@@ -1,22 +1,22 @@
-<h2> Giblog makes it easy to search and replace articles </ h2>
+<h2> Giblog makes it easy to search and replace articles </h2>
 
 Giblog makes it easy to search and replace articles. Giblog has all the data of the articles on the website as a file. Since everything is a file, you can easily find and replace articles using Linux commands and Perl.
 
 "Ah, I want to replace this word in a blog article all at once." Giblog is easy to implement using Linux commands and Perl.
 
-<h3> Let's search for articles-grep command </ h3>
+<h3> Let's search for articles-grep command </h3>
 
 You can use the grep command to search for articles. The grep command is a Linux command that allows you to check that a file contains a specific string. Use the "-r" option to target all files in the directory.
 
 <pre>
 grep -r string target directory
-</ pre>
+</pre>
 
 Use the grep command to find the word "steak" in the article under the "templates" directory.
 
 <pre>
 grep -r "steak" templates
-</ pre>
+</pre>
 
 A line containing "steak" will be printed on the screen along with the file name, as shown below.
 
@@ -25,14 +25,14 @@ templates / blog / 20190821075954.html: If you add a plugin or other user progra
 templates / blog / 20190814071930.html: In addition, even fewer people make their own steaks, get domains, and output.
 templates / blog / 20190814071930.html: If you make a steak with Giblog, you will at least know that you can make your own steak.
 templates / index.html: You can try full-scale steak production on your Windows, macOS, Linux computer without a rental server. To set the environment, just proceed with the procedure.
-templates / start.html: <li> <a href="/blog/20190416153053.html"> Build a steak making environment on Windows </a> </ li>
-templates / start.html: <h3> Steak design </ h3>
-templates / start.html: <h3> Modify the steak </ h3>
-</ pre>
+templates / start.html: <li> <a href="/blog/20190416153053.html"> Build a steak making environment on Windows</a> </li>
+templates / start.html: <h3> Steak design </h3>
+templates / start.html: <h3> Modify the steak </h3>
+</pre>
 
 If you are using grep for the first time, you may be surprised. You can search so easily and quickly.
 
-<h3> Limited to HTML files and CSS </ h3>
+<h3> Limited to HTML files and CSS </h3>
 
 Search results include all results such as image files, so I would like to extract only text files such as HTML files and CSS.
 
@@ -41,13 +41,13 @@ In such cases, you can further refine your HTML files from the search results. A
 <pre>
 # Focus only on HTML and CSS files that contain steak
 grep -r "steak" templates | grep -P "(\ .html | \ .css)"
-</ pre>
+</pre>
 
 By writing this, you can narrow down to only HTML files and CSS files that contain steaks.
 
 For a better understanding, try searching for Linux commands, grep, and Perl regular expressions.
 
-<h3> Replace using Perl </ h3>
+<h3> Replace using Perl </h3>
 
 Sometimes you want to replace this word in an article. Even in this case, you can combine Linux commands and Perl well.
 
@@ -57,20 +57,20 @@ Let's modify the previous command a little. I will explain why this is possible 
 
 <pre>
 grep -rl "steak" templates | grep -P "(\ .html | \ .css)" | uniq | xargs perl -pi -e "s / steak / sushi /"
-</ pre>
+</pre>
 
 Mysteriously, when you execute the above command, all "steaks" in the article are converted to "sushi".
 
-<h3> I want to undo if I make a mistake in replacement </ h3>
+<h3> I want to undo if I make a mistake in replacement </h3>
 
 You may accidentally replace it. In that case, you can use "git reset --hard" to completely undo your changes.
 
 <pre>
 git reset --hard
-</ pre>
+</pre>
 
 If you want to know more, try searching for the git command.
 
-<h3> Easy to search, replace, and undo </ h3>
+<h3> Easy to search, replace, and undo </h3>
 
 With Giblog, Linux commands, Perl and Git, it's very easy to find, replace and undo.

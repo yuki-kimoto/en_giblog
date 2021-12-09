@@ -1,40 +1,40 @@
-<h2> Set up an inquiry form </ h2>
+<h2> Set up an inquiry form </h2>
 
 Let's set up an inquiry form.
 
 It must be running on a rental server that can run CGI.
 
-Introducing this time is a <a href="https://perlzemi.com/mail.html"> simple email form </a> that allows you to send a subject, email address and message.
+Introducing this time is a <a href="https://perlzemi.com/mail.html"> simple email form</a> that allows you to send a subject, email address and message.
 
 It works by setting the HTML of the inquiry form and the CGI of the inquiry form.
 
-<h3> Inquiry Form HTML </ h3>
+<h3> Inquiry Form HTML </h3>
 
 HTML for the contact form.
 
 <pre>
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </ script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
 
 <script>
-  $ (function () {
-    $ ('.mail-form button'). on ('click', function () {
-      var form_values ​​= $ ('.mail-form form'). serialize ();
-      $ .post (
+  $(function () {
+    $('.mail-form button'). on ('click', function () {
+      var form_values ​​= $('.mail-form form'). serialize ();
+      $.post (
         "/mail.cgi",
         form_values,
         function (data) {
           if (data.success) {
-            $ ('.mail-form'). html ('<div class = "mail-form-success"> Message accepted. Thank you for sending. </ Div>');
+            $('.mail-form'). html ('<div class = "mail-form-success"> Message accepted. Thank you for sending. </Div>');
           }
           else {
             // Error message
             var errors = data.errors;
-            $ ('.mail-form-errors'). empty ();
+            $('.mail-form-errors'). empty ();
             for (var i = 0; i <errors.length; i ++) {
               var error = errors [i];
-              var li = $ ('<li> </ li>');
+              var li = $('<li> </li>');
               li.text (error);
-              $ ('.mail-form-errors'). Append (li);
+              $('.mail-form-errors'). Append (li);
             }
           }
         },
@@ -42,55 +42,55 @@ HTML for the contact form.
       );
     });
   });
-</ script>
+</script>
 
-<h2> Inquiry Form </ h2>
+<h2> Inquiry Form </h2>
 <div class = "mail-form">
   <ul class = "mail-form-errors">
-  </ ul>
+  </ul>
   <form>
     <label>
       <div class = "mail-form-title">
         name:
-      </ div>
+      </div>
       <div class = "mail-form-body">
         <input type = "text" size = 50 name = "name"> <br>
-      </ div>
-    </ label>
+      </div>
+    </label>
     <label>
       <div class = "mail-form-title">
         email address:
-      </ div>
+      </div>
       <div class = "mail-form-body">
         <input type = "text" size = 50 name = "email">
-      </ div>
-    </ label>
+      </div>
+    </label>
     <label>
       <div class = "mail-form-title">
         message:
-      </ div>
+      </div>
       <div class = "mail-form-body">
-        <textarea name = "message"> </ textarea>
-      </ div>
-    </ label>
+        <textarea name = "message"> </textarea>
+      </div>
+    </label>
     <div>
-      <button type = "button"> Send message </ button>
-    </ div>
-  </ form>
-</ div>
-</ pre>
+      <button type = "button"> Send message </button>
+    </div>
+  </form>
+</div>
+</pre>
 
 Place this with the following file name.
 
 <pre>
 templates / mail.html
-</ pre>
+</pre>
 
-<h3> CGI of inquiry form </ h3>
+<h3> CGI of inquiry form </h3>
 
 This is the CGI of the inquiry form.
 
-Please specify the destination email address in the "$ mailto" part.
+Please specify the destination email address in the "$mailto" part.
 
 <pre>
 #! / usr / bin / env perl
@@ -100,97 +100,97 @@ use warnings;
 use utf8;
 
 use CGI;
-use JSON :: PP'encode_json';
-use MIME :: Lite;
+use JSON::PP'encode_json';
+use MIME::Lite;
 
 use Encode'decode','encode';
 
-my $ q = CGI-> new;
+my $q = CGI->new;
 
 #Mail to
-my $ mailto ='info@foo.example';
+my $mailto ='info@foo.example';
 
 #Mail title
-my $ subject ='Email has arrived at the site';
+my $subject ='Email has arrived at the site';
 
 #Errors
 my @errors;
 
 #Name
-my $ name = $ q-> param ('name');
-$ name = decode ('UTF-8', $ name);
-unless (length $ name) {
+my $name = $q->param('name');
+$name = decode ('UTF-8', $name);
+unless (length $name) {
   push @errors, "Please specify a name.";
 }
 
 #Email
-my $ email = $ q-> param ('email');
-$ email = decode ('UTF-8', $ email);
+my $email = $q->param('email');
+$email = decode ('UTF-8', $email);
 
-unless (length $ email && $ email = ~ / \ @ /) {
+unless (length $email && $email = ~ / \ @/) {
   push @errors, "Please enter your email address correctly.";
 }
 
 #Message
-my $ message = $ q-> param ('message');
-$ message = decode ('UTF-8', $ message);
-unless (length $ message) {
+my $message = $q->param('message');
+$message = decode ('UTF-8', $message);
+unless (length $message) {
   push @errors, "Please specify a message.";
 }
 
 #Response
-my $ res = << "EOS";
+my $res = << "EOS";
 Content-type: application / json;
 
 EOS
 
-my $ res_data = {};
+my $res_data = {};
 
 unless (@errors) {
   #Mail body
-  my $ mail_body = << "EOS";
-Name: $ name
-Email: $ email
-Message: $ message
+  my $mail_body = << "EOS";
+Name: $name
+Email: $email
+Message: $message
 EOS
 
   #Send mail
-  my $ msg = MIME :: Lite-> new (
-    From => $ mailto,
-    To => $ mailto,
-    Subject => encode ('MIME-Header', $ subject),
+  my $msg = MIME::Lite->new(
+    From => $mailto,
+    To => $mailto,
+    Subject => encode ('MIME-Header', $subject),
     Type =>'multipart / mixed'
   );
-  $ msg-> attach (
+  $msg->attach(
     Type =>'TEXT',
-    Data => encode ('UTF-8', $ mail_body),
+    Data => encode ('UTF-8', $mail_body),
   );
-  unless ($ msg-> send) {
+  unless ($msg->send) {
     push @errors, "Failed to send email.";
   }
 }
 
 if (@errors) {
-  $ res_data-> {success} = 0;
-  $ res_data-> {errors} = \ @ errors;
+  $res_data->{success} = 0;
+  $res_data->{errors} = \ @errors;
 }
 else {
-  $ res_data-> {success} = 1;
+  $res_data->{success} = 1;
 }
 
 #JSON response
-my $ res_json = encode_json ($ res_data);
-$ res. = "$ res_json \ n";
+my $res_json = encode_json ($res_data);
+$res. = "$res_json\n";
 
 #Print response
-print $ res;
-</ pre>
+print $res;
+</pre>
 
 Place this with the following file name.
 
 <pre>
 templates / static / mail.cgi
-</ pre>
+</pre>
 
 Save the line feed code as "LF".
 
@@ -198,8 +198,8 @@ Change the permission to "755" with the following command.
 
 <pre>
 chmod 755 templates / static / mail.cgi
-</ pre>
+</pre>
 
 If you want to place it on a public server other than when using Git, you need to set the line feed code to LF and the permission to 755 even on the public server.
 
-Please also refer to "<a href="https://github.com/yuki-kimoto/perlzemitut/tree/master/templates"> mail form </a>" in the Perl introductory seminar.
+Please also refer to "<a href="https://github.com/yuki-kimoto/perlzemitut/tree/master/templates"> mail form</a>" in the Perl introductory seminar.

@@ -1,4 +1,4 @@
-<h2> Publish the site with Sakura Rental Server Lite </ h2>
+<h2> Publish the site with Sakura Rental Server Lite </h2>
 
 Let's publish the site created using Sakura Rental Server Light.
 
@@ -7,12 +7,12 @@ This is the moment when a website is published on the web. I'm thrilled.
 The features of publishing the site using Sakura's rental server light are as follows.
 
 <ul>
-  <li> It can be operated for 129 yen per month </ li>
-  <li> Capacity is 10G </ li>
-  <li> Publish the site using FTP </ li>
-  <li> Pages using CGI such as mail forms move </ li>
-  <li> HTTPS support is free </ li>
-</ ul>
+  <li> It can be operated for 129 yen per month </li>
+  <li> Capacity is 10G </li>
+  <li> Publish the site using FTP </li>
+  <li> Pages using CGI such as mail forms move </li>
+  <li> HTTPS support is free </li>
+</ul>
 
 As a caveat
 
@@ -22,15 +22,15 @@ When using CGI, it is necessary to set permissions, line feed code, etc. correct
 
 I will write a rough flow.
 
-<h3> Domain acquisition </ h3>
+<h3> Domain acquisition </h3>
 
-Get your domain with <a href="https://www.onamae.com/"> your name.com </a>.
+Get your domain with <a href="https://www.onamae.com/"> your name.com</a>.
 
 The price of the domain is about 100 yen per month.
 
-<h3> Apply for Sakura Rental Server Light Plan </ h3>
+<h3> Apply for Sakura Rental Server Light Plan </h3>
 
-Apply for <a href="https://www.sakura.ne.jp/lite.html"> Sakura Rental Server Light Plan </a>.
+Apply for <a href="https://www.sakura.ne.jp/lite.html"> Sakura Rental Server Light Plan</a>.
 
 After applying, please keep the following information at hand. Information required when uploading a file by FTP.
 
@@ -38,64 +38,64 @@ After applying, please keep the following information at hand. Information requi
   <tr>
     <th>
       hostname
-    </ th>
+    </th>
     <th>
       username
-    </ th>
+    </th>
     <th>
       password
-    </ th>
-  </ tr>
+    </th>
+  </tr>
   <tr>
     <td>
       (Example) perlcodesample.sakura.ne.jp
-    </ td>
+    </td>
     <td>
       (Example) perlcodesample
-    </ td>
+    </td>
     <td>
       (Example) fjiegheudijf76! @
-    </ td>
-  </ tr>
+    </td>
+  </tr>
   <tr>
-  </ tr>
-</ table>
+  </tr>
+</table>
 
-<h3> Domain settings in Sakura's control panel </ h3>
+<h3> Domain settings in Sakura's control panel </h3>
 
 Set the domain. Please set the acquired domain.
 
-<a href="https://help.sakura.ad.jp/hc/ja/articles/206053782"> [Domain settings] Use a domain acquired and managed by another company --Sakura support information </a>
+<a href="https://help.sakura.ad.jp/hc/ja/articles/206053782"> [Domain settings] Use a domain acquired and managed by another company --Sakura support information</a>
 
-<h3> Setting up a DNS server with your name.com </ h3>
+<h3> Setting up a DNS server with your name.com </h3>
 
 At Name.com, set up a Sakura Standard server that corresponds to your domain name.
 
-<a href="https://www.onamae.com/guide/p/70"> DNS related function settings: DNS record settings --Name.com </a>
+<a href="https://www.onamae.com/guide/p/70"> DNS related function settings: DNS record settings --Name.com</a>
 
 You can get the IP address information of the server to be set by the following procedure.
 
-Sakura Control Panel-> View Server Information-> Information About Servers-> IP Address
+Sakura Control Panel->ViewServer Information->InformationAbout Servers->IPAddress
 
 The IP address is written as follows.
 
 <pre>
 210.224.185.82
-</ pre>
+</pre>
 
-<h3> Download FFFTP </ h3>
+<h3> Download FFFTP </h3>
 
 Publishing the site is a procedure of uploading by FTP.
 
 Let's download the software called FFFTP that can use FTP on Windows. 32bit is 32bit, 64bit is 64bit version.
 
-<a href="https://forest.watch.impress.co.jp/library/software/ffftp/"> Download FFFTP --Window Company </a>
+<a href="https://forest.watch.impress.co.jp/library/software/ffftp/"> Download FFFTP --Window Company</a>
 
 Please refer to here for the setting of FFFTP.
 
-<a href="https://help.sakura.ad.jp/hc/ja/articles/206207161-FFFTP%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99 % E3% 82% 8B "> Using FFFTP --Sakura support information </a>
+<a href="https://help.sakura.ad.jp/hc/ja/articles/206207161-FFFTP%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99 %E3%82%8B "> Using FFFTP --Sakura support information</a>
 
-<h3> Publishing the site </ h3>
+<h3> Publishing the site </h3>
 
 To publish your site, look for the following files on Windows:
 
@@ -106,7 +106,7 @@ Files to be published have been created in the "public" directory.
 <pre>
 #Path on Windows
 mysite / public /
-</ pre>
+</pre>
 
 Upload all the contents of this file to complete the publication.
 
@@ -115,7 +115,7 @@ Create a folder called "mysite-public" on Sakura's rental server.
 <pre>
 #Path on the rental server
 mysite-public /
-</ pre>
+</pre>
 
 Let's throw all the contents of "mysite / public /" into this.
 
@@ -123,6 +123,6 @@ That's it.
 
 If you access with the acquired domain name and the site is displayed, you are done.
 
-<h3> Free SSL settings </ h3>
+<h3> Free SSL settings </h3>
 
-<a href="https://help.sakura.ad.jp/hc/ja/articles/115000136822--%E7%84%A1%E6%96%99SSL-%E3%82%B5%E3%83% BC% E3% 83% 90% E3% 82% B3% E3% 83% B3% E3% 83% 88% E3% 83% AD% E3% 83% BC% E3% 83% AB% E3% 83% 91% E3% 83% 8D% E3% 83% AB% E3% 81% 8B% E3% 82% 89% E3% 81% AE% E5% B0% 8E% E5% 85% A5% E6% 89% 8B% E9% A0% 86 "> [Free SSL] Installation procedure from the server control panel --Sakura support information </a>
+<a href="https://help.sakura.ad.jp/hc/ja/articles/115000136822--%E7%84%A1%E6%96%99SSL-%E3%82%B5%E3%83%BC%E3%83%90%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%91%E3%83%8D%E3%83%AB%E3%81%8B%E3%82%89%E3%81%AE%E5%B0%8E%E5%85%A5%E6%89%8B%E9%A0%86 "> [Free SSL] Installation procedure from the server control panel --Sakura support information</a>

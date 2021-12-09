@@ -1,4 +1,4 @@
-<h2> Use a JavaScript library such as jQuery </ h2>
+<h2> Use a JavaScript library such as jQuery </h2>
 
 Let's place and use a JavaScript library such as jQuery.
 
@@ -9,14 +9,14 @@ Here, let's use jQuery as an example.
 The method is to download jQuery, place it, and use it.
 
 <blockquote>
-<a href="https://jquery.com/download/"> jQuery official website-download </a>
-</ blockquote>
+<a href="https://jquery.com/download/"> jQuery official website-download</a>
+</blockquote>
 
 Pay attention to the following part at the top of the site.
 
 <pre>
 Download the compressed, production jQuery 3.4.1
-</ pre>
+</pre>
 
 The May 8, 2019 version is 3.4.1.
 
@@ -26,7 +26,7 @@ The name should be something like "jquery-3.4.1.min.js".
 
 JavaScript allows you to use dynamic expressions on your site.
 
-<h3> Place the JavaScript library </ h3>
+<h3> Place the JavaScript library </h3>
 
 First, you need to deploy the JavaScript library.
 
@@ -34,9 +34,9 @@ Let's assume that the saved name is "jquery-3.4.1.min.js" and place it in the fo
 
 <pre>
 templates / static / js
-</ pre>
+</pre>
 
-<h3> Load the JavaScript library </ h3>
+<h3> Load the JavaScript library </h3>
 
 Next you need to load the JavaScript library. The JavaScript library needs to be loaded before it can be used.
 
@@ -44,17 +44,17 @@ It is recommended to load it in the head section of HTML. Write it in the follow
 
 <pre>
 templates / common / meta.html
-</ pre>
+</pre>
 
 Open the file and write the following line.
 
 <pre>
-<script src = "/ js / jquery-3.4.1.min.js"> </ script>
-</ pre>
+<script src = "/ js / jquery-3.4.1.min.js"> </script>
+</pre>
 
 JavaScript can be read with a script tag, and the path is described in the src attribute.
 
-<h3> "Hello" with jQuery </ h3>
+<h3> "Hello" with jQuery </h3>
 
 Next, let's actually use jQuery.
 
@@ -64,11 +64,11 @@ At the top of this, write:
 
 <pre>
 <script>
-  $ (function () {
+  $(function () {
     alert ('Hello');
   });
-</ script>
-</ pre>
+</script>
+</pre>
 
 It's written in jQuery syntax.
 

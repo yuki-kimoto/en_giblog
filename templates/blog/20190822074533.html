@@ -1,47 +1,47 @@
-<h2> Fast rebuild of Giblog. Reconstruction can be automated. </ h2>
+<h2> Fast rebuild of Giblog. Reconstruction can be automated. </h2>
 
 Rebuilding Giblog is fast. Giblog is a CMS that generates static HTML, but rebuilding that HTML is fast enough to avoid stress.
 
 
 
-<h3> Fast rebuild of Giblog 645 pages in 0.78 seconds </ h3>
+<h3> Fast rebuild of Giblog 645 pages in 0.78 seconds </h3>
 
 Rebuilding can be done with the "giblog build" command.
 <pre>
 giblog build
-</ pre>
+</pre>
 
 Generate an HTML file for publication in the "public" directory from the resource files in the "templates" directory.
 
-In a standard Linux environment benchmark, we were able to build <b> 645 pages in 0.78 seconds </ b>.
+In a standard Linux environment benchmark, we were able to build <b> 645 pages in 0.78 seconds </b>.
 
 Rebuilding is stress-free and comfortable to complete in less than a second.
 
-<h3> Why Giblog rebuilds so fast </ h3>
+<h3> Why Giblog rebuilds so fast </h3>
 
 Why is Giblog rebuilding so fast? There are several possible reasons.
 
-<h4> Functions are narrowed down to the minimum necessary </ h4>
+<h4> Functions are narrowed down to the minimum necessary </h4>
 
-In Giblog, while introducing <a href="/blog/20190816080249.html"> advanced SEO measures </a>, <a href="/blog/20190819080050.html"> smartphone support </a>, the page We have minimized the functionality required to generate.
+In Giblog, while introducing <a href="/blog/20190816080249.html"> advanced SEO measures</a>, <a href="/blog/20190819080050.html"> smartphone support</a>, the page We have minimized the functionality required to generate.
 
 We do not perform complicated analysis that would be a performance bottleneck, and provide only the minimum functions required for websites that disseminate information.
 
-<h4> Perl HTML generation </ h4>
+<h4> Perl HTML generation </h4>
 
-The programming language <a href="https://perlzemi.com/"> Perl </a> is used to generate HTML for Giblog.
+The programming language <a href="https://perlzemi.com/"> Perl</a> is used to generate HTML for Giblog.
 
 Perl is optimized for descriptiveness and performance for text processing, so text output like HTML is fast.
 
-<h3> Automation of reconstruction </ h3>
+<h3> Automation of reconstruction </h3>
 
-Giblog provides the ability to automate rebuilds when a web framework called <a href="https://mojolicious.org/"> Mojolicious </a> is installed.
+Giblog provides the ability to automate rebuilds when a web framework called <a href="https://mojolicious.org/"> Mojolicious</a> is installed.
 
 When you start the web server in the local environment with the following command, the modification of the file is detected and the website is automatically rebuilt.
 
 <pre>
 morbo serve.pl
-</ pre>
+</pre>
 
 In other words, if you start the web server in the local environment to check the site without manually executing the rebuild command, the rebuild will be performed automatically.
 

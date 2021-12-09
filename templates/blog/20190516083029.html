@@ -1,43 +1,43 @@
-<h2> How to create your own blog top page </ h2>
+<h2> How to create your own blog top page </h2>
 
 For blogs created with the new_blog command, the top page containing articles for one week is automatically generated. I will explain how to make the top page of the blog a static HTML page.
 
-<h3> Open build script </ h3>
+<h3> Open build script </h3>
 
 First of all, open the Perl script that is building your site.
 
 <pre>
 lib / Giblog / Command / build.pm
-</ pre>
+</pre>
 
-<h3> Comment out the process of automatically generating the top page </ h3>
+<h3> Comment out the process of automatically generating the top page </h3>
 
 Look for the following code.
 
 <pre>
   #Create index page
-  $ self-> create_index;
-</ pre>
+  $self->create_index;
+</pre>
 
 Comment out this part. Perl comments are "#".
 
 <pre>
   #Create index page
-  # $ self-> create_index;
-</ pre>
+  # $self->create_index;
+</pre>
 
-<h3> Place the HTML of the top page </ h3>
+<h3> Place the HTML of the top page </h3>
 
 Finally, create your own top page. Create the following file.
 
 <pre>
 templates / index.html
-</ pre>
+</pre>
 
 The content is the content of the top page.
 
 <pre>
-<h2> My site </ h2>
+<h2> My site </h2>
 
 This is my site.
-</ pre>
+</pre>

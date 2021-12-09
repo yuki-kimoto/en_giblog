@@ -1,4 +1,4 @@
-<h2> Display image </ h2>
+<h2> Display image </h2>
 
 Let's display the image in the article. With easy-to-understand illustrations, the quality of the article will be greatly improved.
 
@@ -8,7 +8,7 @@ Let's try Linux Penguins as an example of the image.
 
 The above is the example displayed.
 
-<h3> Place the image </ h3>
+<h3> Place the image </h3>
 
 First, you need to place the image.
 
@@ -16,11 +16,11 @@ Assuming that the name of the prepared image is "linux-penguin.png", let's place
 
 <pre>
 templates / static / images
-</ pre>
+</pre>
 
 Place your images in this directory.
 
-<h3> Display image </ h3>
+<h3> Display image </h3>
 
 After arranging the images, let's display the images.
 
@@ -28,55 +28,55 @@ Add the following line to your article.
 
 <pre>
 <img src = "/ images / linux-penguin.png">
-</ pre>
+</pre>
 
 The image is displayed.
 
 The img tag is an HTML function for displaying images. Specify the image path in the attribute called src.
 
-<h3> FAQ </ h3>
+<h3> FAQ </h3>
 
-<h4> I want to specify the size of the image </ h4>
+<h4> I want to specify the size of the image </h4>
 
 If you want to specify the size of the image, use a stylesheet and write:
 
 <pre>
 <img src = "/ images / linux-penguin.png" style = "width: 400px">
-</ pre>
+</pre>
 
 <img src = "/ images / linux-penguin.png" style = "width: 400px">
 
-<h4> I want to support the image size on both smartphones and PCs </ h4>
+<h4> I want to support the image size on both smartphones and PCs </h4>
 
 If you want to support the size of the image on both smartphones and PCs, write as follows.
 
-For smartphones, it is displayed at 98% of the horizontal screen, and for PCs, it is displayed at 400px.
+For smartphones, it is displayed at 98%of the horizontal screen, and for PCs, it is displayed at 400px.
 
 <pre>
 <img src = "/ images / linux-penguin.png" style = "width: 98%; max-width: 400px;">
-</ pre>
+</pre>
 
 <img src = "/ images / linux-penguin.png" style = "width: 98%; max-width: 400px;">
 
-<h4> I want to surround the image with a border </ h4>
+<h4> I want to surround the image with a border </h4>
 
 If you want to surround the image with a border, write as follows.
 
 <pre>
 <img src = "/ images / linux-penguin.png" style = "border: 1px solid #ddd">
-</ pre>
+</pre>
 
 <img src = "/ images / linux-penguin.png" style = "border: 1px solid #ddd">
 
 Surrounded by a 1px light gray border.
 
-<h4> Is it okay to place images in subdirectories? </ H4>
+<h4> Is it okay to place images in subdirectories? </H4>
 
 Yes.
 
 <pre>
 templates / static / images / foo / bar.png
-</ pre>
+</pre>
 
 It's okay to have a subdirectory like this.
 
@@ -84,6 +84,6 @@ The image is specified
 
 <pre>
 <img src = "/ images / foo / bar.png">
-</ pre>
+</pre>
 
 Will be.

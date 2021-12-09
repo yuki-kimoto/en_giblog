@@ -1,8 +1,8 @@
-<h2> Advanced SEO measures-automatic setting of title tag and description </ h2>
+<h2> Advanced SEO measures-automatic setting of title tag and description </h2>
 
 By default, Giblog has effective SEO measures implemented.
 
-<h3> Automatic setting of title tag </ h3>
+<h3> Automatic setting of title tag </h3>
 
 The title of the top page "index.html" will be the site title set in "site_title" of giblog.conf.
 
@@ -15,118 +15,118 @@ use utf8;
   site_title =>'My original site',
   site_url =>'http://somesite.example',
 }
-</ pre>
+</pre>
 
 In this case, the title tag of the top page will be "My original site".
 
 <pre>
-<title> My own original site </ title>
-</ pre>
+<title> My own original site </title>
+</pre>
 
 Titles other than the top page will have the site title after the first heading on the page.
 
 An example of a page other than the top page is, for example, the first heading
 
 <pre>
-<h2> How to eat delicious tomatoes </ h2>
-</ pre>
+<h2> How to eat delicious tomatoes </h2>
+</pre>
 
 If so, the title tag on this page will be "How to Eat Tomatoes-My Original Site".
 
 <pre>
-<title> How to eat delicious tomatoes-my original site </ title>
-</ pre>
+<title> How to eat delicious tomatoes-my original site </title>
+</pre>
 
-<h3> Automatic description setting </ h3>
+<h3> Automatic description setting </h3>
 
 The first untagged paragraph is automatically set to description.
 
 <pre>
-<h2> How to eat delicious tomatoes </ h2>
+<h2> How to eat delicious tomatoes </h2>
 
 How can I eat tomatoes deliciously? Let's cool it in the refrigerator.
-</ pre>
+</pre>
 
 <pre>
 <meta name = "description" content = "How can I eat tomatoes deliciously? Let's cool them in the refrigerator.">
-</ pre>
+</pre>
 
 The first paragraph with a tag is not recognized as a description, so you can also write a breadcrumb trail that is important for SEO.
 
 <pre>
 <ol class = "bread" itemscope itemtype = "http://schema.org/BreadcrumbList">
   <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
-    <a itemprop="item" href="/"> <span itemprop = "name"> tomato </ span> </a>
+    <a itemprop="item" href="/"> <span itemprop = "name"> tomato </span></a>
     <meta itemprop = "position" content = "1" />
-  </ li>
+  </li>
   & # 8250;
   <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
-    <a itemprop="item" href="/blog/20101130129876.html"> <span itemprop = "name"> How to eat </ span> </a>
+    <a itemprop="item" href="/blog/20101130129876.html"> <span itemprop = "name"> How to eat </span></a>
     <meta itemprop = "position" content = "2" />
-  </ li>
+  </li>
   & # 8250;
   <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
-      <span itemprop = "name"> here </ span>
-  </ li>
-</ ol>
+      <span itemprop = "name"> here </span>
+  </li>
+</ol>
 
-<h2> How to eat delicious tomatoes </ h2>
+<h2> How to eat delicious tomatoes </h2>
 
 How can I eat tomatoes deliciously? Let's cool it in the refrigerator.
-</ pre>
+</pre>
 
 As mentioned above, even if you have a breadcrumb trail, the content of the first untagged paragraph is set to description.
 
 <pre>
 <meta name = "description" content = "How can I eat tomatoes deliciously? Let's cool them in the refrigerator.">
-</ pre>
+</pre>
 
-<h3> Customize title tag and description </ h3>
+<h3> Customize title tag and description </h3>
 
 The above settings can also be customized by editing "lib / Giblog / Command / build.pm".
 
-If you know <a href="https://perlzemi.com/"> Perl </a>, it will be easy to customize, but if you want to change the delimiter between the page title and the site title, simply rewrite it. only.
+If you know <a href="https://perlzemi.com/"> Perl</a>, it will be easy to customize, but if you want to change the delimiter between the page title and the site title, simply rewrite it. only.
 
 <pre>
 lib / Giblog / Command / build.pm
-</ pre>
+</pre>
 
 Changed the delimiter "-" between the page title and the site title to "|".
 
 <pre>
-package Giblog :: Command :: build;
+package Giblog::Command::build;
 
 # omit
 
 sub run {
-  my ($ self, @args) = @_;
+  my ($self, @args) = @_;
   
   # omit
   
-  for my $ file (@ $ files) {
+  for my $file (@$files) {
     
     #Parse title
-    $ api-> parse_title_from_first_h_tag ($ data);
+    $api->parse_title_from_first_h_tag($data);
 
     #Edit title
-    my $ site_title = $ config-> {site_title};
-    if ($ data-> {file} eq'index.html') {
-      $ data-> {title} = $ site_title;
+    my $site_title = $config->{site_title};
+    if ($data->{file} eq'index.html') {
+      $data->{title} = $site_title;
     }
     else {
       #
       # Edited here
       #
-      $ data-> {title} = "$ data-> {title} | $ site_title";
+      $data->{title} = "$data->{title} | $site_title";
     }
 
     #Add page link
-    $ api-> add_page_link_to_first_h_tag ($ data, {root =>'index.html'});
+    $api->add_page_link_to_first_h_tag($data, {root =>'index.html'});
 
     #Parse description
-    $ api-> parse_description_from_first_p_tag ($ data);
+    $api->parse_description_from_first_p_tag($data);
   }
   
   # omit
 }
-</ pre>
+</pre>
