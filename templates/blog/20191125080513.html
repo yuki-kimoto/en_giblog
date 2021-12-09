@@ -1,79 +1,79 @@
-<h2>Markdownで記事を書けるようにする</h2>
+<h2> Make it possible to write articles with Markdown </ h2>
 
-Markdownで記事を書けるようにしてみましょう。GiblogのデフォルトはGiblog記法ですが、Markdownに対応させることもできます。拡張子が「md」だった場合に、マークダウン記法で書けるようにしてみましょう。
+Let's make it possible to write articles with Markdown. Giblog defaults to Giblog notation, but you can also make it compatible with Markdown. If the extension is "md", let's write it in markdown notation.
 
-<h3>Markdownモジュールのインストール</h3>
+<h3> Install Markdown module </ h3>
 
-Perlには、Markdownの入力をHTMLに変換するモジュールがCPANにはいくつかあります。ここでは、Githubのマークダウン記法に近い記述ができるText::Markdown::Hoedownを使ってみましょう。
-
-<pre>
-cpan Text::Markdown::Hoedown
-</pre>
-
-または
+Perl has several modules on CPAN that convert Markdown input to HTML. Here, let's use Text :: Markdown :: Hoedown, which has a description similar to the markdown notation of Github.
 
 <pre>
-cpanm Text::Markdown::Hoedown
-</pre>
+cpan Text :: Markdown :: Hoedown
+</ pre>
 
-cpanmがインストールされている場合は、cpanmで、cpanしかない場合は、cpanでインストールしましょう。
-
-<h3>Markdownで記事を書くためのプログラムの修正</h3>
-
-Giblogの機能を追加・変更するには、ビルドコマンド「lib/Giblog/Command/build.pm」を修正します。修正を間違って動かなくなった時のために、このファイルをバックアップを取っておくと安全です。
-
-ではビルドコマンドにMarkdownで編集できる機能を追加してみましょう。まず、parse_giblog_syntaxというメソッドが呼ばれている部分を探してください。
+or
 
 <pre>
-package Giblog::Command::build;
+cpanm Text :: Markdown :: Hoedown
+</ pre>
 
-use base 'Giblog::Command';
+If you have cpanm installed, install it with cpanm, and if you only have cpan, install it with cpan.
+
+<h3> Modification of the program for writing articles in Markdown </ h3>
+
+To add / change Giblog functions, modify the build command "lib / Giblog / Command / build.pm". It is safe to back up this file in case the fix accidentally stops working.
+
+Now let's add a feature that can be edited with Markdown to the build command. First, look for the part where the method called parse_giblog_syntax is called.
+
+<pre>
+package Giblog :: Command :: build;
+
+use base'Giblog :: Command';
 
 use strict;
 use warnings;
 use utf8;
 
-use File::Basename 'basename';
+use File :: Basename'basename';
 
 sub run {
   # ...
 
-    # Parse Giblog syntax
-    $api->parse_giblog_syntax($data);
+    #Parse Giblog syntax
+    $ api-> parse_giblog_syntax ($ data);
   
   # ...
 }
-</pre>
+</ pre>
 
-この部分を、ファイルの拡張子が「md」であった場合に、Markdownとして解釈して、HTMLを出力するという処理を追加します。
+If the extension of the file is "md", this part is interpreted as Markdown and HTML is output.
 
 <pre>
 sub run {
   # ...
 
-    # Parse Markdown syntax
-    if ($data->{file} =~ /\.md$/) {
-      require Text::Markdown::Hoedown;
+    #Parse Markdown syntax
+    if ($ data-> {file} = ~ /\.md$/) {
+      require Text :: Markdown :: Hoedown;
       
-      # Convert extenstion from md to html
-      $data->{file} =~ s/\.md$/.html/;
+      #Convert extenstion from md to html
+      $ data-> {file} = ~ s /\.md$/.html/;
       
-      # Convert Markdown to HTML
-      $data->{content} = Text::Markdown::Hoedown::markdown($data->{content});
+      #Convert Markdown to HTML
+      $ data-> {content} = Text :: Markdown :: Hoedown :: markdown ($ data-> {content});
     }
     else {
-      # Parse Giblog syntax
-      $api->parse_giblog_syntax($data);
+      #Parse Giblog syntax
+      $ api-> parse_giblog_syntax ($ data);
     }
   
   # ...
 }
-</pre>
+</ pre>
 
-require文を使って、Text::Markdown::Hoedownを動的にロードしています。
+I'm using the require statement to dynamically load Text :: Markdown :: Hoedown.
 
-ファイル拡張子が「md」であった場合に、出力のためにhtmlに修正する処理を書いています。
+If the file extension is "md", I am writing a process to modify it to html for output.
 
-markdown関数を使って、コンテンツをMarkdownからHTMLに変更する処理を書いています。
+I am writing a process to change the content from Markdown to HTML using the markdown function.
 
-templatesの中にあるファイルの拡張子を「md」にして、Markdownで記事を書いてみましょう。出力がHTMLになっていれば、成功です。
+Let's write an article with Markdown by setting the extension of the file in templates to "md". If the output is HTML, you're successful.

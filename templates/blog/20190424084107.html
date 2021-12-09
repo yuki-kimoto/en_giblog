@@ -1,59 +1,59 @@
-<h2>ページを追加する</h2>
+<h2> Add a page </ h2>
 
-Webサイトにページを追加してみましょう。
+Let's add a page to our website.
 
-例として、プロフィールページ「profile.html」を追加してみましょう。
+As an example, let's add a profile page "profile.html".
 
-ページの追加は「templates」ディレクトリの中に、ファイルを配置するだけです。
-
-<pre>
-templates
-</pre>
-
-このディレクトリの中に「profile.html」を作成してください。
-
-テキストエディタで開いて、編集します。
-
-簡単なプロフィールを書いてみましょう。
+To add a page, just place the file in the "templates" directory.
 
 <pre>
-<h2>Perlゼミのプロフィール</h2>
+templates templates
+</ pre>
 
-PerlでWebサイトを作成しています。
+Create "profile.html" in this directory.
 
-よろしくお願いします。
-</pre>
+Open it in a text editor and edit it.
 
-タイトルは「h2」タグの中に書きます。本文は上のように、段落ごとに記述しましょう。
+Let's write a brief profile.
 
-注意点として、先頭に半角空白を入れないようにしましょう。
+<pre>
+<h2> Perl Seminar Profile </ h2>
 
-先頭に半角空白を入れると、自動改行機能が無効になってしまうためです。
+I'm creating a website in Perl.
 
-もし文字化けを起こしてしまう場合は、ファイルの保存の文字コードがUTF-8になっていることを確認しましょう。
+Thank you.
+</ pre>
+
+Write the title inside the "h2" tag. Write the text paragraph by paragraph as above.
+
+As a caveat, do not put a half-width space at the beginning.
+
+This is because if you insert a half-width space at the beginning, the automatic line feed function will be disabled.
+
+If the characters are garbled, make sure that the character code for saving the file is UTF-8.
 
 <pre>
 morbo serve.pl
-</pre>
+</ pre>
 
-次のURLでページにアクセスできます。
+You can access the page at the following URL:
 
 <pre>
 http://127.0.0.1:3000/profile.html
-</pre>
+</ pre>
 
-このページにリンクを張るには、他のページで次のように記述しましょう。
-
-<pre>
-<a href="/profile.html">Perlゼミのプロフィール</a>
-</pre>
-
-「templates」ディレクトリの中にサブディレクトリを作ってページを作成することもできます。
+To link to this page, write the following on another page:
 
 <pre>
-templates/menu/service.html
-</pre>
+<a href="/profile.html"> Perl Seminar Profile </a>
+</ pre>
 
-注意点として、最初に作成されている「blog」「common」「static」というディレクトリの中には、ファイルを配置しないでください。
+You can also create pages in the "templates" directory by creating subdirectories.
 
-このディレクトリは、特別なディレクトリとして予約されています。
+<pre>
+templates / menu / service.html
+</ pre>
+
+Please note that do not place files in the initially created "blog", "common" and "static" directories.
+
+This directory is reserved as a special directory.

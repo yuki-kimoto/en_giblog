@@ -1,133 +1,133 @@
-<h2>サイドバーを非表示・幅変更・左右入れ替えする</h2>
+<h2> Hide / change width / swap left / right sidebar </ h2>
 
-サイドバーを非表示・幅変更・左右変更しましょう。Giblogで作成されたブログやWebサイトは、サイドバーがデフォルトで設定されています。これを変更したい場合にも対応できます。
+Hide, change the width, and change the width of the sidebar. Blogs and websites created with Giblog have a sidebar set by default. If you want to change this, you can do it.
 
-サイドバーのデザインを編集するには、次のCSSを編集します。
-
-<pre>
-templates/static/css/common.css
-</pre>
-
-最初に、このファイルを開いてください。
-
-コンテントとサイドバーの設定を探してください。デフォルト設定とスマートフォン用の設定の二つのものがあります。
-
-「@media only screen and (max-width:960px)」より上にあるものが、デフォルト設定、下にあるものがスマートフォン用の設定です。
+To edit the sidebar design, edit the following CSS.
 
 <pre>
-  /* content */
+templates / static / css / common.css
+</ pre>
+
+First, open this file.
+
+Look for content and sidebar settings. There are two settings, the default setting and the setting for smartphones.
+
+The ones above "@media only screen and (max-width: 960px)" are the default settings, and the ones below are the settings for smartphones.
+
+<pre>
+  / * content * /
   .content {
-    /* コンテントエリアの設定 */
+    / * Content area settings * /
   }
 
-  /* side */
+  / * side * /
   .side {
-    /* サイドバーの設定 */
+    / * Sidebar settings * /
   }
 
-/* Tablet and Smart phone */
-@media only screen and (max-width:960px) {
+/ * Tablet and Smart phone * /
+@media only screen and (max-width: 960px) {
   .content {
-    /* コンテントエリアの設定 - スマートフォン */
+    / * Content area settings-Smartphone * /
   }
   .side {
-    /* サイドバーの設定 - スマートフォン */
+    / * Sidebar settings-Smartphone * /
   }
 }
-</pre>
+</ pre>
 
-<h3>サイドバーを非表示にする</h3>
+<h3> Hide sidebar </ h3>
 
-<b>スマートフォンの場合だけ、サイドバーを非表示</b>にしたい場合は、次のように記述してください。
+<b> If you want to hide the sidebar only for smartphones </ b>, write as follows.
 
 <pre>
-  /* content */
+  / * content * /
   .content {
-    /* コンテントエリアの設定 */
+    / * Content area settings * /
   }
 
-  /* side */
+  / * side * /
   .side {
-    /* サイドバーの設定 */
+    / * Sidebar settings * /
   }
 
-/* Tablet and Smart phone */
-@media only screen and (max-width:960px) {
+/ * Tablet and Smart phone * /
+@media only screen and (max-width: 960px) {
   .content {
-    width:100%;
+    width: 100%;
   }
   .side {
-    display:none;
+    display: none;
   }
 }
-</pre>
+</ pre>
 
-<b>PCとスマートフォンの両方でサイドバーを非表示</b>にしたい場合は、次のように記述してください。
+<b> If you want to hide the sidebar on both your PC and smartphone </ b>, write:
 
 <pre>
-  /* content */
+  / * content * /
   .content {
-    width:100%;
+    width: 100%;
   }
 
-  /* side */
+  / * side * /
   .side {
-    display:none;
+    display: none;
   }
 
-/* Tablet and Smart phone */
-@media only screen and (max-width:960px) {
+/ * Tablet and Smart phone * /
+@media only screen and (max-width: 960px) {
   .content {
-    width:100%;
+    width: 100%;
   }
   .side {
-    display:none;
+    display: none;
   }
 }
-</pre>
+</ pre>
 
-<h3>サイドバーの幅を変更する</h3>
+<h3> Change the width of the sidebar </ h3>
 
-サイドバーの幅を変更するには、以下のように設定します。widthとmargin-leftを変更してください。
+To change the width of the sidebar, set as follows: Change width and margin-left.
 
-メインコンテンツが70%、サイドバーが29%、間のマージンを1%に設定する例です。
+This is an example of setting the main content to 70%, the sidebar to 29%, and the margin between them to 1%.
 
 <pre>
-  /* content */
+  / * content * /
   .content {
-    float:left;
-    width:70%;
+    float: left;
+    width: 70%;
   }
   
-  /* side */
+  / * side * /
   .side {
-    float:left;
-    width:29%;
-    margin-left:1%;
+    float: left;
+    width: 29%;
+    margin-left: 1%;
   }
-</pre>
+</ pre>
 
-<h3>サイドバーの左右を入れ替える</h3>
+<h3> Swap the left and right sides of the sidebar </ h3>
 
-サイドバーの左右を入れ替えるには、以下のように設定します。floatの設定をrightに変更し、margin-leftをmargin-rightに変更します。
+To swap the left and right sides of the sidebar, set as follows. Change the float setting to right and change margin-left to margin-right.
 
 <pre>
-  /* content */
+  / * content * /
   .content {
-    float:right;
-    width:74%;
+    float: right;
+    width: 74%;
   }
   
-  /* side */
+  / * side * /
   .side {
-    float:right;
-    width:25%;
-    margin-right:1%;
+    float: right;
+    width: 25%;
+    margin-right: 1%;
   }
-</pre>
+</ pre>
 
-<h3>参考</h3>
+<h3> Reference </ h3>
 
-サイドバーのデザインの変更のために、CSSの基礎について知りたい場合は、以下の記事を参考にしてください。
+If you want to know the basics of CSS for changing the design of the sidebar, please refer to the following articles.
 
-<a href="/blog/20190509080917.html">Webサイト作成のためのCSSの基礎</a>
+<a href="/blog/20190509080917.html"> CSS basics for creating websites </a>

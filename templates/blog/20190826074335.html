@@ -1,59 +1,59 @@
-<h2>GiblogはWindows、Mac OS、Linuxに対応</h2>
+<h2> Giblog is compatible with Windows, Mac OS and Linux </ h2>
 
-GiblogはWindows、Mac OS、Linuxに対応しています。Windows、Mac OSでのローカルPCでの開発、Debian, Ubuntu, CentOS, RedHatなどのLinuxにおけるリモートサーバーでの開発もサポートしています。
+Giblog is compatible with Windows, Mac OS and Linux. We also support development on local PCs on Windows and Mac OS, and development on remote servers on Linux such as Debian, Ubuntu, CentOS, and Red Hat.
 
-<h3>Windowsのサポート</h3>
+<h3> Windows support </ h3>
 
-Windowsでは、疑似的なLinux環境を再現するmsys2というツールを、インストールすることで、Giblogを利用することができます。
+On Windows, you can use Giblog by installing a tool called msys2 that reproduces a pseudo Linux environment.
 
-以下でインストール方法とGiblogの使い方を解説しています。
+The installation method and how to use Giblog are explained below.
 
-<a href="/blog/20190416153053.html">WindowsでWebサイト作成の環境を作る</a>
+<a href="/blog/20190416153053.html"> Create an environment for creating websites on Windows </a>
 
-<h3>Mac OSのサポート</h3>
+<h3> Mac OS support </ h3>
 
-Mac OSには、Perlがデフォルトインストールされているので、そのまま使い始めることができます。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+Perl is installed by default on Mac OS, so you can start using it as is. Also install Mojolicious, which is required for automatic rebuilding of HTML files.
 
 <pre>
 cpanm Mojolicious
-</pre>
+</ pre>
 
-最近のMac OSでは、バージョンによって、Perlのモジュールのインストールが、正しくできないという不具合があったり、将来的には、Perlを含むスクリプト言語を、デフォルトで提供しないという方針が進められているということも聞きます。
+In recent Mac OS, there is a problem that Perl modules cannot be installed correctly depending on the version, and in the future, there is a policy that the scripting language including Perl will not be provided by default. Listen.
 
-確実にインストールを成功させたい場合は、ローカル環境に構築したPerlを使いましょう。perlbrewやplenvというローカル環境にPerlを構築するツールを利用します。
+If you want to make sure the installation is successful, use Perl built in your local environment. Use tools such as perlbrew and plenv to build Perl in your local environment.
 
 <ul>
-  <li><a href="https://perlzemi.com/blog/20110220130464.html">perlbrew - ユーザー環境にPerlをインストールする</a></li>
-  <li><a href="https://perlzemi.com/blog/20180816153437.html">plenv - ユーザー環境にPerlをインストールする</a></li>
-</ul>
+  <li> <a href="https://perlzemi.com/blog/20110220130464.html"> perlbrew --Install Perl in your environment </a> </ li>
+  <li> <a href="https://perlzemi.com/blog/20180816153437.html"> plenv --Install Perl in your environment </a> </ li>
+</ ul>
 
-どちらも似ているツールなので、お好みで選んでください。
+Both are similar tools, so choose your favorite.
 
-この後に以下のコマンドを実行してGiblogをインストールしてください。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+After this, execute the following command to install Giblog. Also install Mojolicious, which is required for automatic rebuilding of HTML files.
 
 <pre>
 cpanm Giblog
 cpanm Mojolicious
-</pre>
+</ pre>
 
-<h3>Linuxのサポート</h3>
+<h3> Linux support </ h3>
 
-Debian, Ubuntu, CentOS, RedHatなどのLinuxサーバーにSSHで接続して、リモート環境で、開発を行うこともできます。
+You can also SSH into a Linux server such as Debian, Ubuntu, CentOS, RedHat and develop in a remote environment.
 
-リモート環境で開発する場合は、ユーザー環境で開発したいという場合が、多いと思います。
+When developing in a remote environment, I think that there are many cases where you want to develop in a user environment.
 
-そういう場合は、ローカル環境に構築したPerlを使いましょう。perlbrewやplenvというローカル環境にPerlを構築するツールを利用すると、大丈夫です。
+In that case, use Perl built in your local environment. It's okay to use tools such as perlbrew and plenv that build Perl in your local environment.
 
 <ul>
-  <li><a href="https://perlzemi.com/blog/20110220130464.html">perlbrew - ユーザー環境にPerlをインストールする</a></li>
-  <li><a href="https://perlzemi.com/blog/20180816153437.html">plenv - ユーザー環境にPerlをインストールする</a></li>
-</ul>
+  <li> <a href="https://perlzemi.com/blog/20110220130464.html"> perlbrew --Install Perl in your environment </a> </ li>
+  <li> <a href="https://perlzemi.com/blog/20180816153437.html"> plenv --Install Perl in your environment </a> </ li>
+</ ul>
 
-どちらも似ているツールなので、お好みで選んでください。
+Both are similar tools, so choose your favorite.
 
-この後に以下のコマンドを実行してGiblogをインストールしてください。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+After this, execute the following command to install Giblog. Also install Mojolicious, which is required for automatic rebuilding of HTML files.
 
 <pre>
 cpanm Giblog
 cpanm Mojolicious
-</pre>
+</ pre>

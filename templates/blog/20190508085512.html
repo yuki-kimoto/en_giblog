@@ -1,75 +1,75 @@
-<h2>jQueryなどのJavaScriptライブラリを使おう</h2>
+<h2> Use a JavaScript library such as jQuery </ h2>
 
-jQueryやなどのJavaScriptライブラリを配置して使ってみましょう。
+Let's place and use a JavaScript library such as jQuery.
 
-Giblogで作成されたWebサイトでは、静的なCMSでは、JavaScriptが使えます。
+Websites created with Giblog can use JavaScript in static CMS.
 
-ここでは、例としてjQueryを使ってみましょう。
+Here, let's use jQuery as an example.
 
-jQueryを、ダウンロードしてきて、配置して利用するという方法をとります。
+The method is to download jQuery, place it, and use it.
 
 <blockquote>
-<a href="https://jquery.com/download/">jQuery公式サイト - ダウンロード</a>
-</blockquote>
+<a href="https://jquery.com/download/"> jQuery official website-download </a>
+</ blockquote>
 
-サイトの上の方にある以下の部分に注目。
+Pay attention to the following part at the top of the site.
 
 <pre>
 Download the compressed, production jQuery 3.4.1
-</pre>
+</ pre>
 
-2019年5月8日のバージョンは、3.4.1です。
+The May 8, 2019 version is 3.4.1.
 
-このリンクを右クリックして、名前を付けてリンク先を保存してください。
+Right-click on this link and save it as a name.
 
-名前は「jquery-3.4.1.min.js」のようにしてください。
+The name should be something like "jquery-3.4.1.min.js".
 
-JavaScriptを使うと、サイトで動きのある表現を使えるようになります。
+JavaScript allows you to use dynamic expressions on your site.
 
-<h3>JavaScriptライブラリを配置する</h3>
+<h3> Place the JavaScript library </ h3>
 
-最初に、JavaScriptライブラリを配置する必要があります。
+First, you need to deploy the JavaScript library.
 
-保存した名前が「jquery-3.4.1.min.js」だとして、以下のディレクトリの中に配置しましょう。
-
-<pre>
-templates/static/js
-</pre>
-
-<h3>JavaScriptライブラリを読み込もう</h3>
-
-次にJavaScriptライブラリを読み込む必要があります。JavaScriptライブラリは、使う前に、読み込むことが必要です。
-
-HTMLのheadセクションで読み込むのが推奨です。以下のファイルの中に記述しましょう。
+Let's assume that the saved name is "jquery-3.4.1.min.js" and place it in the following directory.
 
 <pre>
-templates/common/meta.html
-</pre>
+templates / static / js
+</ pre>
 
-ファイルを開いて、次の一行を書き込みます。
+<h3> Load the JavaScript library </ h3>
+
+Next you need to load the JavaScript library. The JavaScript library needs to be loaded before it can be used.
+
+It is recommended to load it in the head section of HTML. Write it in the following file.
 
 <pre>
-<script src="/js/jquery-3.4.1.min.js"></script>
-</pre>
+templates / common / meta.html
+</ pre>
 
-JavaScriptはscriptタグで読み込むことができ、パスをsrc属性に記述します。
+Open the file and write the following line.
 
-<h3>jQueryで「こんにちは」</h3>
+<pre>
+<script src = "/ js / jquery-3.4.1.min.js"> </ script>
+</ pre>
 
-次に、実際にjQueryを使ってみましょう。
+JavaScript can be read with a script tag, and the path is described in the src attribute.
 
-ブログの記事やindex.htmlなど、好きなコンテンツを開いてみてください。
+<h3> "Hello" with jQuery </ h3>
 
-この中の一番上に、次のように記述しましょう。
+Next, let's actually use jQuery.
+
+Try opening your favorite content, such as blog posts or index.html.
+
+At the top of this, write:
 
 <pre>
 <script>
-  $(function() {
-    alert('こんにちは');
+  $ (function () {
+    alert ('Hello');
   });
-</script>
-</pre>
+</ script>
+</ pre>
 
-これはjQueryの文法で書かれています。
+It's written in jQuery syntax.
 
-このJavaScriptが書かれたページを開くと、「こんにちは」というメッセージボックスが表示されます。
+When you open the page where this JavaScript is written, the message box "Hello" is displayed.

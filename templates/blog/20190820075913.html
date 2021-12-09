@@ -1,80 +1,79 @@
-<h2>Giblogで作成したWebサイトにお問い合わせフォームを設置できます</h2>
+<h2> You can set up an inquiry form on the website created by Giblog </ h2>
 
-Giblogは、静的なCMS生成ツールですが、お問い合わせフォームを設置することができます。
+Giblog is a static CMS generation tool, but you can set up a contact form.
 
 
-<div style="text-align:center">
-  <a href="/mail.html">お問い合わせフォームのサンプル</a>
-</div>
-<div style="text-align:center">
-  <a href="/mail.html"><img src="/images/otoiawase-example.png" style="border:1px solid #ddd;width:80%;"></a>
-</div>
+<div style = "text-align: center">
+  <a href="/mail.html"> Contact form sample </a>
+</ div>
+<div style = "text-align: center">
+  <a href="/mail.html"> <img src = "/ images / otoiawase-example.png" style = "border: 1px solid #ddd; width: 80%;"> </a>
+</ div>
 
-お問い合わせフォームは、Giblog自体には含まれません。
+The contact form is not included in the Giblog itself.
 
-Giblogは、静的なCMSツールとして、GiblogのWebサイトの中に、CGIのフォームを埋め込める仕組みを準備しています。
+As a static CMS tool, Giblog is preparing a mechanism to embed CGI forms in the Giblog website.
 
-実際のCGIフォームの構成については、Giblog公式サイトのリポジトリの中にある以下の二つのファイルを見てください。
+For the actual CGI form configuration, see the following two files in the repository on the official Giblog site.
 
-<a href="https://github.com/yuki-kimoto/giblog-website/tree/master/templates">Giblog公式サイトのお問い合わせフォーム</a>
-
-<pre>
-templates/mail.html
-template/static/mail.cgi
-</pre>
-
-「git clone」で、GiblogWebサイトを、そのままコピーできますが、お問い合わせフォームだけを保存する場合は、CGIプログラムのパーミッションは755で、改行コードはLFで、保存してください。
-
-<h3>Webサイトにお問い合わせフォームを埋め込める仕組み</h3>
-
-Giblogは、Webサイトに埋め込むことができるCGIのお問い合わせフォームを次の方法で実現しています。
-
-<h4>お問い合わせフォームは、単純なHTMLのテンプレート</h4>
-
-お問い合わせフォームは、単純なHTMLのファイルです。
-
+<a href="https://github.com/yuki-kimoto/giblog-website/tree/master/templates"> Giblog official website inquiry form </a>
 
 <pre>
-templates/mail.html
-</pre>
+templates / mail.html
+template / static / mail.cgi
+</ pre>
 
-HTMLのformタグを使って、メールフォームを記述しています。
+You can copy the Giblog website as it is with "git clone", but if you want to save only the inquiry form, save it with the permission of the CGI program of 755 and the line feed code of LF.
 
-ヘッダとフッタなど、通常のコンテンツと同じ構成で、ラッピングされます。
+<h3> Mechanism for embedding an inquiry form on a website </ h3>
 
-<h4>メールを送信するCGIプログラム</h4>
+Giblog realizes the CGI inquiry form that can be embedded in the website by the following method.
+
+<h4> The contact form is a simple HTML template </ h4>
+
+The contact form is a simple HTML file.
+
 
 <pre>
-template/static/mail.cgi
-</pre>
+templates / mail.html
+</ pre>
 
-は、メールを送信するCGIプログラムです。
+The mail form is described using the HTML form tag.
 
-<h4>Ajax通信で、CGIを呼び出す</h4>
+It is wrapped with the same structure as normal content such as header and footer.
 
-「mail.html」の中には、JavaScriptが記述されており、Ajax通信で「mail.cgi」を呼び出します。
+<h4> CGI program to send emails </ h4>
 
-このようにして、お問い合わせフォームを、Webサイトに埋め込む方法を実現しています。
+<pre>
+template / static / mail.cgi
+</ pre>
 
-<h3>お問い合わせフォーム以外のCGIで作成したフォームを作成できますか</h3>
+Is a CGI program that sends emails.
 
-はい。メッセージをやりとりするボードや、アンケートフォームなど、CGIプログラムでできることは、すべて実現可能です。
+<h4> Call CGI with Ajax communication </ h4>
 
-<h3>どのような環境で動きますか</h3>
+JavaScript is described in "mail.html", and "mail.cgi" is called by Ajax communication.
 
-CGIをサポートしているレンタルサーバーを想定しています。
+In this way, we have realized how to embed the contact form in the website.
 
-<h3>CGIフォームを設置した場合のセキュリティはどうなりますか</h3>
+<h3> Can I create a form created with CGI other than the inquiry form? </ H3>
 
-CGIフォームを設置した場合のセキュリティは、そのCGIに脆弱性がないかどうかにかかっています。
+Yes. Everything you can do with a CGI program, such as a board for exchanging messages and a survey form, is feasible.
 
-お問い合わせフォームがサイトと一体になっていることよりも、セキュリティが優先事項の場合は、サイトを完全に静的なものにして、<a href="https://www.google.com/intl/ja_jp/forms/about/">googleフォーム</a>などの外部のWebサービスを利用することもできます。
+<h3> What kind of environment does it work in? </ H3>
 
-<h3>既存のCGIプログラムを利用することはできますか</h3>
+We are assuming a rental server that supports CGI.
 
-既存のCGIプログラムは、ほぼすべて、CGIプログラムの中に、HTMLフォームが記述される構成になっていると思われます。
+<h3> What will happen to the security if I install the CGI form? </ H3>
 
-ですので、残念ながら再利用することは、難しいでしょう。
+The security of installing a CGI form depends on whether the CGI is vulnerable.
 
-HTMLフォームとCGIプログラムが分離されており、Ajax通信をCGIプログラムの中で行う形のCGIプログラムであれば、再利用しやすいと思います。
+If security is a priority over the contact form being integrated with the site, make the site completely static and <a href="https://www.google.com/intl" You can also use external web services such as / ja_jp / forms / about / "> google forms </a>.
 
+<h3> Can I use an existing CGI program? </ H3>
+
+It seems that almost all existing CGI programs are configured so that HTML forms are written inside the CGI program.
+
+So unfortunately it will be difficult to reuse.
+
+If the HTML form and the CGI program are separated and the Ajax communication is performed in the CGI program, I think it is easy to reuse.

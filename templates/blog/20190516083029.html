@@ -1,43 +1,43 @@
-<h2>ブログのトップページを自分で作成するには</h2>
+<h2> How to create your own blog top page </ h2>
 
-new_blogコマンドで作成したブログは、1週間分の記事を掲載したトップページが自動的に生成されます。ブログのトップページを静的なHTMLのページにする方法を解説します。
+For blogs created with the new_blog command, the top page containing articles for one week is automatically generated. I will explain how to make the top page of the blog a static HTML page.
 
-<h3>ビルドスクリプトを開く</h3>
+<h3> Open build script </ h3>
 
-まず最初に、サイトをビルドしているPerlスクリプトを開きます。
-
-<pre>
-lib/Giblog/Command/build.pm
-</pre>
-
-<h3>トップページの自動生成の処理をコメントアウト</h3>
-
-次のコードを探してください。
+First of all, open the Perl script that is building your site.
 
 <pre>
-  # Create index page
-  $self->create_index;
-</pre>
+lib / Giblog / Command / build.pm
+</ pre>
 
-この部分をコメントアウトします。Perlのコメントは「#」です。
+<h3> Comment out the process of automatically generating the top page </ h3>
 
-<pre>
-  # Create index page
-  # $self->create_index;
-</pre>
-
-<h3>トップページのHTMLを配置</h3>
-
-最後に、自分でトップページを作成します。以下のファイルを作成してください。
+Look for the following code.
 
 <pre>
-templates/index.html
-</pre>
+  #Create index page
+  $ self-> create_index;
+</ pre>
 
-内容はトップページの内容。
+Comment out this part. Perl comments are "#".
 
 <pre>
-<h2>わたしのサイト</h2>
+  #Create index page
+  # $ self-> create_index;
+</ pre>
 
-わたしのサイトです。
-</pre>
+<h3> Place the HTML of the top page </ h3>
+
+Finally, create your own top page. Create the following file.
+
+<pre>
+templates / index.html
+</ pre>
+
+The content is the content of the top page.
+
+<pre>
+<h2> My site </ h2>
+
+This is my site.
+</ pre>

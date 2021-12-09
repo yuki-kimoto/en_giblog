@@ -1,26 +1,25 @@
-<h2>GiblogのWebページがハイパフォーマンスな理由</h2>
+<h2> Why Giblog web pages are so high performance </ h2>
 
-Giblogで作成した、Webページの応答は、ハイパフォーマンスです。
+Web page responses created with Giblog are high performance.
 
-<h3>GiblogのWebページのレスポンスが速い理由</h3>
+<h3> Why Giblog's web page responds so quickly </ h3>
 
-GiblogのWebページのレスポンスが、速い理由は、Giblogは、静的なHTMLを生成するからです。
+The reason Giblog's web pages are so responsive is that Giblog generates static HTML.
 
-動的なCMSツールの場合ですと、実行のたびに、プログラムが動きます。
+In the case of a dynamic CMS tool, the program runs every time it is executed.
 
-プログラムが実行されるということは、単純にWebサーバーが、静的なHTMLを返すよりも、パフォーマンスのコストがかかります。
+Running the program costs more in performance than simply returning static HTML to the web server.
 
-動的なWebサイトに、プラグインなどのユーザープログラムを追加した場合は、プラグインを追加するたびに、Webサイトが遅くなります。
+If you add a plugin or other user program to a dynamic website, the website will slow down each time you add the plugin.
 
-Giblogは、Webページを静的に生成し、HTMLファイルにしますので、実行時のコストはなく、ApacheやNginxが、静的なHTMLを返すコストと同じです。
+Giblog statically generates a web page and turns it into an HTML file, so there is no run-time cost, which is the same as the cost for Apache and Nginx to return static HTML.
 
-静的HTMLファイルは、情報が新しくなるまで、Webサーバー側のキャッシュも効きますので、レスポンスが高速というわけです。
+The static HTML file has a fast response because the cache on the Web server side also works until the information is new.
 
-<h3>難しい設定は不要</h3>
+<h3> No need for difficult settings </ h3>
 
-Giblogは、git cloneで、Webサーバーのドキュメントルートに、ファイルを配置するだけで、最高のパフォーマンスを提供します。
+Giblog provides the best performance by simply placing the file in the document root of the web server with git clone.
 
-動的なCMSツールの場合ですと、動作がCGIで動いていた場合は、アクセスが増えてくるにしたがって、パフォーマンスを上げるために、リバースプロキシ構成に変更して、パフォーマンスアップのようなことをしたりします。
+In the case of a dynamic CMS tool, if the operation was working with CGI, change to a reverse proxy configuration and do something like performance improvement in order to improve performance as access increases. I will.
 
-Giblogは、静的にHTMLを生成するので、最初の状態から、最も早いパフォーマンスになります。
-
+Giblog statically generates HTML, so it has the fastest performance from the beginning.

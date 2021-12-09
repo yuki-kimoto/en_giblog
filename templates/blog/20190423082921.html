@@ -1,52 +1,52 @@
-<h2>ブログの記事を追加する</h2>
+<h2> Add a blog post </ h2>
 
-ブログの記事を追加してみましょう。ブログで、新しい記事を書きたいときは、次のコマンドを実行します。
+Let's add a blog post. If you want to write a new article on your blog, run the following command:
 
-ホームディレクトリに「mysite」という名前で、サイトが作成されていると想定して解説します。
+Let's assume that a site has been created in your home directory with the name "mysite".
 
-まずcdコマンドを使って、サイトのディレクトリに移動します。
+First, use the cd command to change to your site's directory.
 
 <pre>
-cd ~/mysite
-</pre>
+cd ~ / mysite
+</ pre>
 
-ディレクトリに移動したら「giblog add」コマンドを使って、ブログの記事を追加します。
+Once in the directory, use the "giblog add" command to add a blog post.
 
 <pre>
 giblog add
-</pre>
+</ pre>
 
-すると、次のようなメッセージが表示されます。
-
-<pre>
-Create templates/blog/20190423082921.html
-</pre>
-
-今日の年月日と時刻が入ったHTMLファイルが作成されます。
-
-このファイルは空なので、テキストエディタで開いて、編集します。
-
-記事のタイトルと簡単な記事を書いてみましょう。
+Then, the following message will be displayed.
 
 <pre>
-<h2>今日はみかんを食べたぞ</h2>
+Create templates / blog / 20190423082921.html
+</ pre>
 
-今日食べたみかんは、とても甘くおいしかった。
+An HTML file will be created with today's date and time.
 
-みっつも食べてしまった。
+This file is empty, so open it in a text editor and edit it.
 
-</pre>
+Let's write an article title and a brief article.
 
-タイトルは「h2」タグの中に書きます。本文は上のように、段落ごとに記述しましょう。
+<pre>
+<h2> I ate oranges today </ h2>
 
-注意点として、先頭に半角空白を入れないようにしましょう。
+The oranges I ate today were very sweet and delicious.
 
-先頭に半角空白を入れると、自動改行機能が無効になってしまうためです。
+I ate Mitsu too.
 
-記事を追加したら、次のコマンドでサイトを立ち上げて、確認してみましょう。
+</ pre>
 
-もし文字化けを起こしてしまう場合は、ファイルの保存の文字コードがUTF-8になっていることを確認しましょう。
+Write the title inside the "h2" tag. Write the text paragraph by paragraph as above.
+
+As a caveat, do not put a half-width space at the beginning.
+
+This is because if you insert a half-width space at the beginning, the automatic line feed function will be disabled.
+
+After adding the article, launch the site with the following command and check it.
+
+If the characters are garbled, make sure that the character code for saving the file is UTF-8.
 
 <pre>
 morbo serve.pl
-</pre>
+</ pre>

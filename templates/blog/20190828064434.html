@@ -1,80 +1,80 @@
-<h2>Github Pagesを使って完全無料でサイト公開</h2
+<h2> Publish the site completely free of charge using Github Pages </ h2
 
-Giblogでは、Gibhub Pagesを使って完全無料で、あなただけのサイトを公開できます。Giblogで作成したWebサイトを、Githubを使って無料で簡単に公開する方法があります。
+With Giblog, you can publish your own site completely free of charge using Gibhub Pages. There is an easy way to publish a website created with Giblog for free using Github.
 
-<h3>Github Pagesを使って完全無料でサイト公開</h3>
+<h3> Publish the site completely free of charge using Github Pages </ h3>
 
-Github Pagesを使って、サイトを公開してみましょう。
+Let's publish the site using Github Pages.
 
-Github Pagesの特徴です。
+It is a feature of Github Pages.
 
 <ul>
-  <li>静的サイト (HTML、CSS、画像、JavaScript)を公開できます。</li>
-  <li>URLは https://ユーザ名.github.io</li>
-  <li>独自ドメインを指定可能</li>
-  <li>サイトの容量は1GBまで。リクエストは、1か月あたり100GBまたは100,000まで。</li>
-</ul>
+  <li> You can publish static sites (HTML, CSS, images, JavaScript). </ li>
+  <li> URL is https://username.github.io </ li>
+  <li> You can specify your own domain </ li>
+  <li> The capacity of the site is up to 1GB. Requests up to 100GB or 100,000 per month. </ li>
+</ ul>
 
-Github Pagesを、作るのは簡単です。Giblogで作成した公開リポジトリを、以下のリポジトリを作成してpushするだけです。
+Creating Github Pages is easy. Just create the following repository and push the public repository created by Giblog.
 
 <pre>
-ユーザ名.github.io
-</pre>
+Username.github.io
+</ pre>
 
-後で、独自ドメインを指定することもできますよ! SSLにも対応しているので「https」のサイトで運用できます。
+You can also specify your own domain later! Since it also supports SSL, you can operate it on the "https" site.
 
-もしあなたのGithubのユーザーIDが「yuki-kimoto」であれば
+If your Github user ID is "yuki-kimoto"
 
 <pre>
 yuki-kimoto.github.io
-</pre>
+</ pre>
 
-というレポジトリを、Githubで作成してください。
+Please create the repository on Github.
 
-そして、このリポジトリを、公開ファイルのgitレポジトリとして指定します。
+Then specify this repository as the git repository for public files.
 
 <pre>
 cd mysite
 cd public
 git remote add origin git@github.com:yuki-kimoto/yuki-kimoto.github.io.git
-</pre>
+</ pre>
 
-すでに他の場所を指定している場合は、いったん削除しましょう。
+If you have already specified another location, delete it.
 
 <pre>
 git remote remove origin
-</pre>
+</ pre>
 
-あとは、普段と同じようにpushするだけです。
+All you have to do is push as you normally would.
 
 <pre>
 git push origin master
-</pre>
+</ pre>
 
-<h3>Github Pagesの公開URL</h3>
+<h3> Public URL of Github Pages </ h3>
 
-pushしたらサイトを確認してみましょう。
+After pushing, let's check the site.
 
-上記の例の場合は、以下のURLでアクセスできます。
+In the case of the above example, you can access it at the following URL.
 
 <blockquote>
-<a href="https://yuki-kimoto.github.io">https://yuki-kimoto.github.io</a>
-</blockquote>
+<a href="https://yuki-kimoto.github.io"> https://yuki-kimoto.github.io </a>
+</ blockquote>
 
-ページが表示されましたか?
+Did you see the page?
 
-もしページが404になってしまう場合は、Githubがindex.htmlを、トップページと認識していないのかもしれません。
+If the page turns to 404, Github may not recognize index.html as the top page.
 
-そういう場合は、index.htmlに空白などの意味のない文字列などを足して、コミットして、再度pushしてみてください。
+In that case, add a meaningless character string such as a blank to index.html, commit, and try pushing again.
 
-あるいは、5分程度、待ってみてください。Github Pagesのトップページは、即時反映では、ないのかもしれません。
+Or wait for about 5 minutes. The top page of Github Pages may not be an immediate reflection.
 
-<h3>複数のGithub Pagesを持つにはどうすればよいですか</h3>
+<h3> How do I have multiple Github Pages </ h3>
 
-ユーザーIDに対して、Github Pagesは一つ提供されますので、複数のGithub Pagesを持ちたい場合は、複数のユーザーIDが必要になります。
+One Github Pages is provided for each user ID, so if you want to have multiple Github Pages, you need multiple user IDs.
 
-<h3>GitとGithubの使い方がわかりません</h3>
+<h3> I don't know how to use Git and Github </ h3>
 
-近いうちに、GitとGithubの使い方を解説したページも作成予定です。
+In the near future, we plan to create a page that explains how to use Git and Github.
 
-GitとGithubについては、すでに解説されたサイトがたくさんあるので、それを検索してみるのもよいでしょう。
+There are many sites already mentioned about Git and Github, so it's a good idea to search for them.

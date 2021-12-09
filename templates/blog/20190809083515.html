@@ -1,126 +1,126 @@
-<h2>すべてのページをgitで管理</h2>
+<h2> Manage all pages with git </ h2>
 
-Giblogでは、すべてのファイルは静的なファイルとしてGitで管理できます。
+In Giblog, all files can be managed by Git as static files.
 
-Giblogは、動的にWebサイトを生成するCMSツールではなく、静的にWebサイトを生成するCMSツールです。
+Giblog is a CMS tool that statically generates websites, not a CMS tool that dynamically generates websites.
 
-ブログ記事やJavaScriptやスタイルシートや画像ファイル、動画ファイルは、すべてファイルとして管理できます。
+Blog articles, JavaScript, style sheets, image files, and video files can all be managed as files.
 
-データベースに関する知識は、まったく必要がありません。
+No knowledge of the database is required.
 
-<h3>gitを使った記事の管理</h3>
+<h3> Managing articles using git </ h3>
 
-Giblogでは、記事を作成し、ビルドコマンドを実行すると、ヘッダやフッタで囲まれた公開用のHTMLが生成されます。
+In Giblog, when you create an article and execute a build command, HTML for publication enclosed in headers and footers is generated.
 
 <pre>
-# 記事を作成
-templates/mypage.html
+#Create an article
+templates / mypage.html
 
-# ビルド
+# Build
 giblog build
-</pre>
+</ pre>
 
-ビルドされたファイルは公開ディレクトリ「public」以下に生成されます。
-
-<pre>
-# 記事を作成
-public/mypage.html
-</pre>
-
-サイトの構成は以下のように構成します。Giblogでは「ビルドする前のリソースファイル」と「ビルド後の公開ファイル」は、別々のgitリポジトリで管理するようになっています。
+The built file is generated under the public directory "public".
 
 <pre>
-mysite - .git
-       - public -
-                - .git
-</pre>
+#Create an article
+public / mypage.html
+</ pre>
 
-以下のコマンドを実行することで、上記の構成にすることができます。
+The site configuration is as follows. In Giblog, "resource files before build" and "public files after build" are managed in separate git repositories.
 
 <pre>
-# リソースファイルをgit管理
+mysite --.git
+       --public -
+                --.git
+</ pre>
+
+You can make the above configuration by executing the following command.
+
+<pre>
+#Manage resource files with git
 cd mysite
 git init
 
-# 公開ファイルをgit管理
+#Git management of public files
 cd public
 git init
-</pre>
+</ pre>
 
-ビルド前のファイルと、ビルド後のファイルの管理を別のGitリポジトリとして管理されているので、公開ファイルを単に「git clone」あるいは「git pull」することで、公開サーバーに配置することができます。
+Pre-build and post-build files are managed as separate Git repositories, so you can place your public files on a public server by simply "git cloning" or "git pulling" them. ..
 
-CSSやJavaScript、画像ファイル、動画ファイルなどの、ヘッダやフッタを結合する必要のないファイルは「templates/static」ディレクトリに配置することで、何の編集も行わずに、公開ディレクトリに配置することができます。
+Files that do not need to combine headers and footers, such as CSS, JavaScript, image files, and video files, can be placed in the public directory without any editing by placing them in the "templates / static" directory. I can do it.
 
 <pre>
-# 画像ファイル配置
-templates/static/example.png
+#Image file placement
+templates / static / example.png
 
-# ビルド
+# Build
 giblog build
-</pre>
+</ pre>
 
 <pre>
-# 記事を作成
-public/example.png
-</pre>
+#Create an article
+public / example.png
+</ pre>
 
-Git登場以前は、CMSが記事の管理機能を持つことが必須でした。記事の管理のために独自のCMSの機能を覚えることがユーザーに求められました。
+Prior to Git, it was imperative that the CMS have article management capabilities. Users were required to learn their own CMS features to manage their articles.
 
-Giblogは、記事を作成する機能に特化し、記事の管理機能をGitにゆだねます。Giblogのユーザーは、優れた記事管理機能を持つGitの機能をフルに活用できます。
+Giblog specializes in the ability to create articles and entrusts Git with the ability to manage articles. Giblog users can take full advantage of Git's features with excellent article management capabilities.
 
-<h3>記事のグループ管理機能</h3>
+<h3> Article group management function </ h3>
 
-Giglogは、記事の管理機能を、Gitにすべてゆだねています。
+Giglog entrusts Git with all the article management capabilities.
 
-Gitが得意とするのは、プログラムの共同開発です。複数人で共同してプログラムを開発するという目的のために、Gitは活用されています。
+Git specializes in collaborative program development. Git is being leveraged for the purpose of collaborating on program development with multiple people.
 
-このプログラムの共同管理機能を、記事のグループ管理機能として使うことができます。
+You can use the co-management feature of this program as a group management feature for articles.
 
-<a href="https://github.co.jp/">Github</a>にWebサイトのリポジトリを作成して、共同記事の執筆者が、リポジトリをクローンします。
+Create a website repository on <a href="https://github.co.jp/"> Github </a> and the co-article author will clone the repository.
 
-共同執筆者が、自分のローカル環境で、記事を書いて、プルリクエストを依頼します。
+The co-author writes an article and requests a pull request in his local environment.
 
-すると、メインの執筆者が、その記事の内容を、自分のリポジトリに取り込むことができます。
+The main author can then bring the content of the article into his repository.
 
-この記事の管理方法は、セキュリティという面を考えても非常に強固です。
+The management method of this article is also very strong in terms of security.
 
-動的にWebサイトを生成するCMSツールでは、記事のグループ管理を行うには、管理画面から、IDとパスワードを入力することを必要とします。
+CMS tools that dynamically generate websites require you to enter an ID and password from the management screen in order to manage groups of articles.
 
-Giblogは、静的にWebサイトを生成するツールであり、共同管理をGitにゆだねるので、セキュリティ上のリスクが軽減されます。
+Giblog is a static website generation tool that leaves co-management to Git, reducing security risks.
 
-ツールの側のセキュリティホールのために、Webサイトが書き換えられ、企業信用が棄損されるということが、起こらないのです。
+A security hole on the side of the tool does not cause the website to be rewritten and the corporate credibility to be compromised.
 
-<h3>gitによる手軽なデプロイ</h3>
+<h3> Easy deployment with git </ h3>
 
-本番環境へのデプロイは、公開ファイルを管理しているgitリポジトリを、プロダクション環境に「git clone」するだけです。
+To deploy to a production environment, simply "git clone" the git repository that manages the public files into the production environment.
 
 <pre>
-git clone 公開ファイルのgitリポジトリのURL
-</pre>
+git clone URL of git repository for public files
+</ pre>
 
-2回目以降のデプロイは、git pull origin masterをするだけです。
+For the second and subsequent deployments, just do a git pull origin master.
 
 <pre>
 cd mysite
 git pull origin master
-</pre>
+</ pre>
 
-<h3>gitによる手軽なバックアップ</h3>
+<h3> Easy backup with git </ h3>
 
-gitは分散管理のリポジトリシステムで、ファイルの変更履歴を、それぞれのリポジトリに完全に保存しています。
+git is a distributed management repository system that stores the file change history completely in each repository.
 
-つまり、バックアップするには、gitのリポジトリをコピーすればよいだけということになります。
+In other words, to back it up, all you have to do is copy the git repository.
 
-以下のような構成にしておけば、簡単に3重バックアップできます。
+If you have the following configuration, you can easily perform triple backup.
 
 <pre>
 Github
 
-開発用サーバー
+Development server
 
-バックアップサーバー
-</pre>
+Backup server
+</ pre>
 
-開発用サーバーで、Webサイトを作成します。リソースリポジトリをGithubにpushします。
+Create a website on the development server. Push the resource repository to Github.
 
-バックアップサーバーでcronを記述して、Githubから、定期的にgit pull origin masterするようにします。
+Write cron on the backup server so that you can git pull origin master from Github on a regular basis.

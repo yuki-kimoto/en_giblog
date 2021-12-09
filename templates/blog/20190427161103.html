@@ -1,129 +1,128 @@
-<h2>さくらレンタルサーバー・ライトでサイトを公開する</h2>
+<h2> Publish the site with Sakura Rental Server Lite </ h2>
 
-さくらレンタルサーバー・ライトを使って作ったサイトを公開してみましょう。
+Let's publish the site created using Sakura Rental Server Light.
 
-Webサイトが、Webに公開される瞬間です。ドキドキしますね。
+This is the moment when a website is published on the web. I'm thrilled.
 
-さくらのレンタルサーバー・ライトを使ったサイト公開の特徴は次の通りです。
+The features of publishing the site using Sakura's rental server light are as follows.
 
 <ul>
-  <li>月額129円で運用ができる</li>
-  <li>容量は10G</li>
-  <li>サイトの公開は、FTPを使って行う</li>
-  <li>メールフォームなどCGIを使ったページが動く</li>
-  <li>HTTPSに対応するのは無料</li>
-</ul>
+  <li> It can be operated for 129 yen per month </ li>
+  <li> Capacity is 10G </ li>
+  <li> Publish the site using FTP </ li>
+  <li> Pages using CGI such as mail forms move </ li>
+  <li> HTTPS support is free </ li>
+</ ul>
 
-注意点としては
+As a caveat
 
-サイトの公開はFTPを使って行うので、手動で行うと考えてください。
+The site is published using FTP, so think of it as manual.
 
-CGIを利用する場合は、パーミッション、改行コードなどを正しく設定する必要があります。
+When using CGI, it is necessary to set permissions, line feed code, etc. correctly.
 
-大まかな流れを書いていきますね。
+I will write a rough flow.
 
-<h3>ドメイン取得</h3>
+<h3> Domain acquisition </ h3>
 
-<a href="https://www.onamae.com/">お名前.com</a>で、ドメインを取得しましょう。
+Get your domain with <a href="https://www.onamae.com/"> your name.com </a>.
 
-ドメインの価格は、月額で、100円程度になります。
+The price of the domain is about 100 yen per month.
 
-<h3>さくらのレンタルサーバー・ライトプランへ申し込み</h3>
+<h3> Apply for Sakura Rental Server Light Plan </ h3>
 
-<a href="https://www.sakura.ne.jp/lite.html">さくらのレンタルサーバー・ライトプラン</a>に申し込みましょう。
+Apply for <a href="https://www.sakura.ne.jp/lite.html"> Sakura Rental Server Light Plan </a>.
 
-申し込んだ後は、以下の情報を手元に保存しておいてください。FTPでファイルをアップロードするときに必要な情報です。
+After applying, please keep the following information at hand. Information required when uploading a file by FTP.
 
 <table>
   <tr>
     <th>
-      ホスト名
-    </th>
+      hostname
+    </ th>
     <th>
-      ユーザー名
-    </th>
+      username
+    </ th>
     <th>
-      パスワード
-    </th>
-  </tr>
+      password
+    </ th>
+  </ tr>
   <tr>
     <td>
-      (例)perlcodesample.sakura.ne.jp
-    </td>
+      (Example) perlcodesample.sakura.ne.jp
+    </ td>
     <td>
-      (例)perlcodesample
-    </td>
+      (Example) perlcodesample
+    </ td>
     <td>
-      (例)fjiegheudijf76!@
-    </td>
-  </tr>
+      (Example) fjiegheudijf76! @
+    </ td>
+  </ tr>
   <tr>
-  </tr>
-</table>
+  </ tr>
+</ table>
 
-<h3>さくらのコントロールパネルで、ドメインの設定</h3>
+<h3> Domain settings in Sakura's control panel </ h3>
 
-ドメインを設定します。取得したドメインを設定してください。
+Set the domain. Please set the acquired domain.
 
-<a href="https://help.sakura.ad.jp/hc/ja/articles/206053782">【ドメイン設定】他社で取得・管理中のドメインを利用 - さくらのサポート情報</a>
+<a href="https://help.sakura.ad.jp/hc/ja/articles/206053782"> [Domain settings] Use a domain acquired and managed by another company --Sakura support information </a>
 
-<h3>お名前.comでDNSサーバーの設定</h3>
+<h3> Setting up a DNS server with your name.com </ h3>
 
-お名前.comで、ドメイン名に対応するさくらスタンダードのサーバーを設定します。
+At Name.com, set up a Sakura Standard server that corresponds to your domain name.
 
-<a href="https://www.onamae.com/guide/p/70">DNS関連機能の設定：DNSレコード設定 - お名前.com</a>
+<a href="https://www.onamae.com/guide/p/70"> DNS related function settings: DNS record settings --Name.com </a>
 
-設定するサーバーのIPアドレス情報は以下の手順で入手できます。
+You can get the IP address information of the server to be set by the following procedure.
 
-さくらコントールパネル -> サーバ情報の表示 -> サーバに関する情報 -> IPアドレス
+Sakura Control Panel-> View Server Information-> Information About Servers-> IP Address
 
-以下のように書かれているのがIPアドレスです。
+The IP address is written as follows.
 
 <pre>
 210.224.185.82
-</pre>
+</ pre>
 
-<h3>FFFTPのダウンロード</h3>
+<h3> Download FFFTP </ h3>
 
-サイトの公開はFTPでアップロードという手順になります。
+Publishing the site is a procedure of uploading by FTP.
 
-Windows上でFTPが利用できるFFFTPというソフトをダウンロードしましょう。32bitの方は32bit、64bitの方は64bit版。
+Let's download the software called FFFTP that can use FTP on Windows. 32bit is 32bit, 64bit is 64bit version.
 
-<a href="https://forest.watch.impress.co.jp/library/software/ffftp/">FFFTPのダウンロード - 窓の社</a>
+<a href="https://forest.watch.impress.co.jp/library/software/ffftp/"> Download FFFTP --Window Company </a>
 
-FFFTPの設定はこちらを参考にしてください。
+Please refer to here for the setting of FFFTP.
 
-<a href="https://help.sakura.ad.jp/hc/ja/articles/206207161-FFFTP%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">FFFTPを利用する - さくらのサポート情報</a>
+<a href="https://help.sakura.ad.jp/hc/ja/articles/206207161-FFFTP%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99 % E3% 82% 8B "> Using FFFTP --Sakura support information </a>
 
-<h3>サイトの公開</h3>
+<h3> Publishing the site </ h3>
 
-サイトを公開するには、Windows上で以下のファイルを探してみましょう。
+To publish your site, look for the following files on Windows:
 
-このサンプルは、ホームディレクトリに「mysite」という名前でサイトが作成されたとして、解説します。
+This sample assumes that a site was created in your home directory with the name "mysite".
 
-「public」ディレクトリに、公開するファイルが作成されています。
-
-<pre>
-# Windows上のパス
-mysite/public/
-</pre>
-
-このファイルの中身をすべてアップロードすれば公開が完了です。
-
-さくらのレンタルサーバー上で「mysite-public」というフォルダを作成してください。
+Files to be published have been created in the "public" directory.
 
 <pre>
-# レンタルサーバー上のパス
-mysite-public/
-</pre>
+#Path on Windows
+mysite / public /
+</ pre>
 
-この中に「mysite/public/」の中身をすべて放り込みましょう。
+Upload all the contents of this file to complete the publication.
 
-これで完了です。
+Create a folder called "mysite-public" on Sakura's rental server.
 
-取得したドメイン名でアクセスして、サイトが表示されれば、完了です。
+<pre>
+#Path on the rental server
+mysite-public /
+</ pre>
 
-<h3>無料SSLの設定</h3>
+Let's throw all the contents of "mysite / public /" into this.
 
-<a href="https://help.sakura.ad.jp/hc/ja/articles/115000136822--%E7%84%A1%E6%96%99SSL-%E3%82%B5%E3%83%BC%E3%83%90%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%91%E3%83%8D%E3%83%AB%E3%81%8B%E3%82%89%E3%81%AE%E5%B0%8E%E5%85%A5%E6%89%8B%E9%A0%86">【無料SSL】サーバコントロールパネルからの導入手順 - さくらのサポート情報</a>
+That's it.
 
+If you access with the acquired domain name and the site is displayed, you are done.
+
+<h3> Free SSL settings </ h3>
+
+<a href="https://help.sakura.ad.jp/hc/ja/articles/115000136822--%E7%84%A1%E6%96%99SSL-%E3%82%B5%E3%83% BC% E3% 83% 90% E3% 82% B3% E3% 83% B3% E3% 83% 88% E3% 83% AD% E3% 83% BC% E3% 83% AB% E3% 83% 91% E3% 83% 8D% E3% 83% AB% E3% 81% 8B% E3% 82% 89% E3% 81% AE% E5% B0% 8E% E5% 85% A5% E6% 89% 8B% E9% A0% 86 "> [Free SSL] Installation procedure from the server control panel --Sakura support information </a>

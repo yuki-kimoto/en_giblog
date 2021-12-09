@@ -1,304 +1,304 @@
-<h2>WindowsでWebサイト作成の環境を作る</h2>
+<h2> Create an environment for creating websites on Windows </ h2>
 
-Windowsで、Webサイトを作成するための環境を最初に作成しましょう。
+Let's first create an environment for creating a website on Windows.
 
-「Windows 10 64bit」を想定して解説されますが、Windows 8やWindows 7の32bitでも動くように構成します(予定)。
+The explanation is based on the assumption of "Windows 10 64bit", but it will be configured to work on Windows 8 and Windows 7 32bit (planned).
 
-環境を作るのは、最初は難しく感じると思います。
+Creating an environment can be difficult at first.
 
-手順通りにやっていけば、環境が作成できるので、最初のうちは、よくわからないままで大丈夫です。
+If you follow the procedure, you can create an environment, so you can leave it unclear at first.
 
-ここでは、ブログを完成するところまでを解説します。
+Here, I will explain up to the point of completing the blog.
 
-次のようなブログが作成できますよ。
+You can create the following blog.
 
 <ul>
-  <li><a href="http://www.giblog.net/">Giblog - git世代のためのブログ作成ツール</li>
-  <li><a href="https://perlzemi.com/">Perl入門ゼミ - Perlを0から学べる無料テキスト</a></li>
-</ul>
+  <li> <a href="http://www.giblog.net/"> Giblog-Blogging tool for the git generation </ li>
+  <li> <a href="https://perlzemi.com/"> Perl Introductory Seminar-Free text to learn Perl from scratch </a> </ li>
+</ ul>
 
-Giblogで作成されたWebサイトも、同じ手順で作成されています。
+Websites created with Giblog are created using the same procedure.
 
-これらのサイトは、ブログですが、普通のWebサイトを作りたい場合も簡単なのでご安心を。
+These sites are blogs, but don't worry, it's easy if you want to create a regular website.
 
-<a href="https://twitter.com/perlzemi">PerlゼミのTwitter</a>で、ここがうまくいかないんだけどと伝えてくれれば、お答えします。
+<a href="https://twitter.com/perlzemi"> Perl Seminar Twitter </a>, if you tell me that this isn't working, I'll answer.
 
-では、環境の構築に進みましょう。
+Now let's move on to building the environment.
 
-<h3>msys2をWindowsにインストールする</h3>
+<h3> Install msys2 on Windows </ h3>
 
-最初にmsys2というツールをWindowsにインストールします。
+First, install a tool called msys2 on Windows.
 
-<b>msys2の画面</b>
+<b> msys2 screen </ b>
 <div>
-  <img src="/images/msys2.png">
-</div>
+  <img src = "/ images / msys2.png">
+</ div>
 
-この真っ暗い画面はなんでしょうか? ちょっとびっくりしますね。
+What is this pitch-black screen? I'm a little surprised.
 
-少しだけ解説すると、この真っ黒い画面に、コマンドと呼ばれる文字を打ち込んで、Webサイトを作成します。
+To explain a little, I will create a website by typing characters called commands on this black screen.
 
-<b>ブログを作成したい場合</b>
+<b> If you want to create a blog </ b>
 
 <pre>
 giblog new_blog mysite
-</pre>
+</ pre>
 
-<b>シンプルなWebサイトを作成したい場合</b>
+<b> If you want to create a simple website </ b>
 
 <pre>
 giblog new_website mysite
-</pre>
+</ pre>
 
-上記のコマンドを実行すれば、Webサイトが完成します。上記のコマンドはPerlで作られていて、これを実行するための環境を作っていきます。
+Run the above command to complete your website. The above command is written in Perl and will create an environment to execute it.
 
-msys2は、上のようなコマンドを実行するためのツールだと考えてくれれば大丈夫です。
+You can think of msys2 as a tool for executing commands like the one above.
 
-「コマンドって?」となっていると思いますが、いまは大丈夫。
+I think it says "What is a command?", But it's okay now.
 
-<h3>msys2のインストール 10分</h3>
+<h3> 10 minutes to install msys2 </ h3>
 
-msys2をダウンロードしてインストールしましょう。
+Download and install msys2.
 
-<h4>msys2のダウンロード</h4>
+<h4> Download msys2 </ h4>
 
-msys2をインストールしましょう。64bit版Windowsの場合は64bit版のmsys2を、32bit版のWindowsの場合は32bit版のmsys2を利用しましょう。
+Let's install msys2. Use the 64-bit version of msys2 for 64-bit Windows, and the 32-bit version of msys2 for 32-bit Windows.
 
-確認方法(<a href="https://121ware.com/qasearch/1007/app/servlet/relatedqa?QID=011799">Windows 7</a>, <a href="https://pc-karuma.net/windows8-32bit-64bit-check/">Windows 8</a>, <a href="https://pc-karuma.net/windows10-32bit-64bit-check/">Windows 10</a>)
+How to check (<a href="https://121ware.com/qasearch/1007/app/servlet/relatedqa?QID=011799"> Windows 7 </a>, <a href="https://pc-karuma" .net / windows8-32bit-64bit-check / "> Windows 8 </a>, <a href="https://pc-karuma.net/windows10-32bit-64bit-check/"> Windows 10 </a> >)
 
-msys2をダウンロードしましょう。
+Download msys2.
 
 <ul>
   <li>
-    <a href="https://sourceforge.net/projects/msys2/files/Base/x86_64/">64bit版- msys2-x86_64-日付.exe</a>
-  </li>
+    <a href="https://sourceforge.net/projects/msys2/files/Base/x86_64/"> 64-bit version-msys2-x86_64-date.exe </a>
+  </ li>
   <li>
-    <a href="https://sourceforge.net/projects/msys2/files/Base/i686/">32bit版 - msys2-i686-日付.exe</a>
-  </li>
-</ul>
+    <a href="https://sourceforge.net/projects/msys2/files/Base/i686/"> 32-bit version --msys2-i686-date.exe </a>
+  </ li>
+</ ul>
 
-一番上にあるのが、最新版です。クリックして、msys2をデスクトップに、ダウンロードしましょう。
+At the top is the latest version. Click to download msys2 to your desktop.
 
-<h4>ユーザー名の確認</h4>
+<h4> Confirm user name </ h4>
 
-Windowsの「C:\Users」(日本語表示は C:\ユーザー)以下にあるユーザーディレクトリが、以下のように英語になっていることを確認してください。
+Make sure that the user directory under "C: \ Users" (Japanese display is C: \ users) in Windows is in English as shown below.
 
 <pre>
 kimot
-</pre>
+</ pre>
 
-もし、以下のように日本語になっている場合は、追加の設定が必要になります。
+If it is in Japanese as shown below, additional settings are required.
 
 <pre>
-木本
-</pre>
+Kimoto
+</ pre>
 
-日本語になっていた場合は、msys2をインストールする前に、環境変数の設定で、変数名に「HOME」を、変数値に「C:\msys64\home\msys2user」のように設定してください。英語であった場合は、以下の手順は飛ばしてください。
-
-<table>
-  <tr>
-    <td>変数名</td>
-    <td>変数値</td>
-  </tr>
-  <tr>
-    <td>HOME</td>
-    <td>C:\msys64\home\msys2user</td>
-  </tr>
-</table>
-
-32bit環境の場合は次のように設定してください。
+If it is in Japanese, before installing msys2, set the variable name to "HOME" and the variable value to "C: \ msys64 \ home \ msys2user" in the environment variable settings. .. If it was in English, skip the steps below.
 
 <table>
   <tr>
-    <td>変数名</td>
-    <td>変数値</td>
-  </tr>
+    <td> variable name </ td>
+    <td> variable value </ td>
+  </ tr>
   <tr>
-    <td>HOME</td>
-    <td>C:\msys32\home\msys2user</td>
-  </tr>
-</table>
+    <td> HOME </ td>
+    <td> C: \ msys64 \ home \ msys2user </ td>
+  </ tr>
+</ table>
 
-手順は以下を参考にしてください。
+For a 32-bit environment, set as follows.
+
+<table>
+  <tr>
+    <td> variable name </ td>
+    <td> variable value </ td>
+  </ tr>
+  <tr>
+    <td> HOME </ td>
+    <td> C: \ msys32 \ home \ msys2user </ td>
+  </ tr>
+</ table>
+
+Please refer to the following for the procedure.
 
 <ul>
-  <li><a href="https://www.k-cube.co.jp/wakaba/server/environ.html">環境変数の設定画面を開く(7, 8, 10)</a>
-  <li><a href="http://www.wannko.net/windows10/etc/kankyo.html">環境変数の追加</a>
-</ul>
+  <li> <a href="https://www.k-cube.co.jp/wakaba/server/environ.html"> Open the environment variable setting screen (7, 8, 10) </a>
+  <li> <a href="http://www.wannko.net/windows10/etc/kankyo.html"> Add environment variables </a>
+</ ul>
 
-msys2のホームディレクトリに上記のディレクトリが設定されます。
+The above directory is set as the home directory of msys2.
 
-「msys2user」というディレクトリを、
+A directory called "msys2user"
 
-<h4>msys2のインストール</h4>
+<h4> Install msys2 </ h4>
 
-デスクトップにあるmsys2のアイコンをダブルクリックします。
+Double-click the msys2 icon on your desktop.
 
-次へを押していくと、インストールが始まります。3分くらいかかりますので、待ちましょう。
+Press Next to start the installation. It will take about 3 minutes, so let's wait.
 
-完了を押すとmsys2が起動しますが、いったん右上のバツを押して終了させましょう。
+When you press Finish, msys2 will start, but let's press the cross on the upper right to end it.
 
-<h4>msys2の二回目以降の起動</h4>
+<h4> The second and subsequent boots of msys2 </ h4>
 
-msys2を一度閉じると、次は、どこから起動したらいいんだろうと迷いますね。
+Once you close msys2, you're wondering where to start next.
 
-Windowsのスタート－メニューのアプリケーションの一覧からmの目次を探すと「MSYS2 64bit」のディレクトリがあります。
+If you look for the table of contents of m from the list of applications in the Windows Start-Menu, you will find the directory "MSYS2 64bit".
 
-その中に
+In it
 
 <ul>
   <li>
     MSYS2 MinGW 64bit
-  </li>
+  </ li>
   <li>
     MSYS2 MINGW 32bit
-  </li>
+  </ li>
   <li>
-    <b>MSYS2 MSYS</b>
-  </li>
-</ul>
+    <b> MSYS2 MSYS </ b>
+  </ li>
+</ ul>
 
-がありますが、<b>「MSYS2 MSYS」</b>を起動しましょう。msys2には、3種類の起動スクリプトがありますが、PerlでWebサイトを作る今回の場合は「MSYS2 MSYS」を選択します。
+However, let's start <b> "MSYS2 MSYS" </ b>. There are three types of startup scripts in msys2, but in this case creating a website in Perl, select "MSYS2 MSYS".
 
-これを間違うと正しくPerlの環境が整えられないので、注意してください。
+Please note that if you make a mistake, the Perl environment will not be set up correctly.
 
-他の二つは、Windowsネイティブアプリを開発する場合に利用するようです。
+The other two seem to be used when developing Windows native apps.
 
-デスクトップにショートカットを作成しておくと起動が便利です。その場合は「右クリック」「その他」「ファイルの場所を開く」から「MSYS2 MSYS」を「右クリック」「コピー」して、デスクトップで「貼り付け」です。
+It is convenient to start by creating a shortcut on the desktop. In that case, right-click, "Other", "Open File Location", "Right-click" and "Copy" "MSYS2 MSYS", and then "Paste" on the desktop.
 
-お疲れ様です。msys2のインストールが終わりました。
+thank you for your hard work. Installation of msys2 is complete.
 
-次は、真っ黒の画面で、コマンドを実行して、Perlが実行できる環境を作っていくということをやります。後、半分です。
+Next, on a black screen, execute commands to create an environment where Perl can be executed. After that, it's half.
 
-<h3>Perl環境構築 20分</h3>
+<h3> Perl environment construction 20 minutes </ h3>
 
-msys2でPerlを利用できるようにします。PerlとPerlで必要となる開発環境の一覧をまとめてインストールしましょう。
+Make Perl available on msys2. Let's install Perl and the list of development environments required by Perl together.
 
 <pre>
 pacman -S perl perl-CPAN msys2-devel make libcrypt-devel git
-</pre>
+</ pre>
 
-上記をコピーして、msys2で「右クリック」→「Paste」するとペーストされます。Enterを押して、上記のコマンドを実行しましょう。
+Copy the above and select "Right click"-> "Paste" in msys2 to paste it. Press Enter to execute the above command.
 
-インストールするか聞かれるので「Enter」を押して進めましょう。何を聞かれても「Enter」で大丈夫。
+You will be asked if you want to install it, so press "Enter" to proceed. No matter what you ask, just press "Enter".
 
-以下がインストールされます。これが、Perlを正しく動かすために必要な最小限の環境です。
+The following will be installed. This is the minimum environment required for Perl to work properly.
 
 <ul>
   <li>
     perl (perl)
-  </li>
+  </ li>
   <li>
     cpan (perl-CPAN)
-  </li>
+  </ li>
   <li>
     gcc (msys2-devel)
-  </li>
+  </ li>
   <li>
     make (make)
-  </li>
+  </ li>
   <li>
     crypt.h (libcrypt-devel)
-  </li>
-</ul>
+  </ li>
+</ ul>
 
 
-pacmanというのは、msys2のパッケージマネージャーです。パッケージマネージャーは、環境を作るためのツールを、インストール・管理するために用意されているツールです。
+pacman is a package manager for msys2. Package manager is a tool provided for installing and managing tools for creating an environment.
 
-<b>ここで一度右上のバツを押して、ターミナルを閉じて、「MSYS2 MSYS」再起動してください。これを行わないと、PATHの設定が正しくされず、cpanコマンドが正しく動きません。</b>
+<b> Now press the cross on the upper right once to close the terminal and restart "MSYS2 MSYS". If you don't do this, your PATH settings will be incorrect and the cpan command will not work properly. </ b>
 
-Perlがインストールされているか確認しましょう。
+Make sure you have Perl installed.
 
 <pre>
 perl -v
-</pre>
+</ pre>
 
-以下のように表示されれば、インストールされています。バージョンは、新しい場合もあります。
+If you see the following, it is installed. The version may be new.
 
 <pre>
 This is perl 5, version 24, subversion 4 (v5.24.4) built for x86_64-msys-thread-multi
-</pre>
+</ pre>
 
-<h4>Webサイト作成ツール</h4>
+<h4> Website creation tool </ h4>
 
-Webサイト作成ツールとして「Giblog」と「Mojolicious」というPerlのライブラリをインストールします。
+Install the Perl libraries "Giblog" and "Mojolicious" as website creation tools.
 
-Perlのライブラリには、Unix/Linux環境で動くことが想定されているものもあります。以下の設定で、シンボリックリンクが、msys2で正しく動くようにしてください。
+Some Perl libraries are expected to work in Unix / Linux environments. Make sure the symbolic link works properly on msys2 with the following settings.
 
 <pre>
-export MSYS=winsymlinks
-</pre>
+export MSYS = winsymlinks
+</ pre>
 
-上記をコピー＆ペーストして、Enter。
+Copy and paste the above and press Enter.
 
-次に以下のコマンドでPerlのライブラリをインストールします。
+Then install the Perl library with the following command.
 
 <pre>
 cpan Giblog
 cpan Mojolicious
-</pre>
+</ pre>
 
-初回はcpanを自動設定するか聞かれるので「Enter」で進めましょう。何を聞かれても「Enter」で大丈夫です。
+The first time you'll be asked if you want to set cpan automatically, press Enter to proceed. No matter what you ask, just press "Enter".
 
-このインストールが確認できると環境構築の作業は終了です。
+If this installation is confirmed, the environment construction work is completed.
 
-<h3>Webサイトの作成</h3>
+<h3> Creating a website </ h3>
 
-ようやくここまで来ました。ついに、Webサイトを作成してみましょう。
+I'm finally here. Finally, let's create a website.
 
-以下のコマンドでWebサイトを作成できます。
+You can create a website with the following command.
 
-<b>ブログを作成したい場合</b>
+<b> If you want to create a blog </ b>
 
 <pre>
 giblog new_blog mysite
-</pre>
+</ pre>
 
-<b>シンプルなWebサイトを作成したい場合</b>
+<b> If you want to create a simple website </ b>
 
 <pre>
 giblog new_website mysite
-</pre>
+</ pre>
 
-Webサイトを作成したら、作成したWebサイトを、ブラウザから確認してみましょう。
+After creating a website, the created web siteLet's check it from your browser.
 
-以下のコマンドで、Webサイトが見れるようになります。
+You can see the website with the following command.
 
 <pre>
-cd ~/mysite
+cd ~ / mysite
 morbo serve.pl
-</pre>
+</ pre>
 
-コマンドを実行すると、以下のように表示されます。
+When you run the command, you should see something like this:
 
 <pre>
 Server available at http://127.0.0.1:3000
-</pre>
+</ pre>
 
-Internet ExploreやFirfoxやChromeなどのWebブラウザのアドレス欄に
+In the address field of a web browser such as Internet Explorer, Firefox or Chrome
 
 <pre>
 http://127.0.0.1:3000
-</pre>
+</ pre>
 
-と入力してください。
+Please enter.
 
-作成したブログを確認できました。
+I was able to confirm the created blog.
 
-おめでとうございます!
+Congratulations!
 
-この後は、サイトを編集したり、記事を追加したりできます。
+After this, you can edit the site and add articles.
 
-<h3>トラブルシューティング</h3>
+<h3> Troubleshooting </ h3>
 
-msys2のインストール、Perlのインストール手順が失敗する場合に、ウイルスチェッカー(Avast、マカフィー、ノートン、etc)が、msys2をウイルスソフトだと誤検知する場合がありました。
+If the msys2 installation or Perl installation procedure fails, the virus checker (Avast, McAfee, Norton, etc.) may falsely detect msys2 as virus software.
 
-また、ウイルスチェッカーによって管理者権限で、実行できない場合がありました。
+Also, depending on the virus checker, it may not be possible to execute with administrator privileges.
 
-この問題が起こった場合は、msys2のインストーラーを起動する前に、ウイルスチェッカーを一時的に停止して、右クリック「管理者権限として実行」を行ってください。
+If you encounter this issue, temporarily stop the virus checker and right-click "Run as administrator" before launching the msys2 installer.
 
-Windows 10である場合は、デフォルトのウイルスソフトであるWindows Defenderを使えば、問題なくインストールできるようです。
+If you are using Windows 10, you can install it without any problem by using the default virus software, Windows Defender.
 
-<h3>お願い</h3>
+<h3> Please </ h3>
 
-msys2は定期的にアップデートされて、パッケージ名やアップデートコマンドが変わったりするので、この手順でうまくいかない場合は、<a href="https://github.com/yuki-kimoto/perlzemitut">リポジトリ</a>か<a href="https://twitter.com/perlzemi">PerlゼミのTwitter</a>にてお知らせください。
+msys2 is updated regularly and the package name and update command change, so if this procedure doesn't work, <a href="https://github.com/yuki-kimoto/perlzemitut"> repository </ strong> Please let us know on a> or <a href="https://twitter.com/perlzemi"> Perl seminar Twitter </a>.
